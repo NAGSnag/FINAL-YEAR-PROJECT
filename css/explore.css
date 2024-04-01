@@ -1,0 +1,68 @@
+body{
+ /* background:linear-gradient(to right, lightblue, lightgreen); */
+ background-color:white;
+}
+.searchbar{
+    height: 130px;
+    background-color: white;
+    margin-top: 100px;
+    width: 85%;
+    border: 3px solid black;
+    border-radius: 20px;
+    margin-left: 6%;
+    padding: 10px;
+  background:linear-gradient(to right, lightblue, lightgreen);
+}
+.content{
+    width: 95%;
+    margin-top: 1px;
+    border-radius: 20px;
+    margin-left: 1%;
+    border: 2px solid white;
+    display: flex;
+    
+    flex-wrap: wrap;
+
+}
+.card{
+    width: 325px;
+    position:relative;
+    justify-content: space-between;
+    border-radius: 20px;
+    height: 300px;
+    background-color: white;
+    /* margin: 20px; */
+    margin-left: 25px;
+    margin-top: 15px;
+    text-align:center;
+
+}
+.card img{
+    width: 95%;
+    height: 60%;
+    border-radius: 8px;
+    margin-top: 2%;
+    border: 1px solid black;
+
+}
+.card a{
+    font-size: medium;
+    padding-left: 2px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+
+
+}
+.card div{
+    text-align: left;
+    padding-left: 3px;
+    display: flex;
+
+}
+.card div img{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin-top: -0.7px;
+}
