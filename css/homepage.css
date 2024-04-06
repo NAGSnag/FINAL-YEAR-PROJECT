@@ -145,11 +145,17 @@ div.container a
   margin-left: 17%;
   border-radius: 20px;
   height: 500px;
-  animation: background_image 10s infinite;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: background_image 15s infinite;
 }
 @keyframes background_image {
-  0%{background-image: url(../images/main.png);}
-  50%{background-image: url(../images/main2.png);}
-  100%{background-image: url(../images/main3.png);}
+  0%{background-image: url(../images/freelance-work-for-free-quotes-01.jpg);}
+  50%{background-image: url(../images/freelance-work-for-free-quotes-02.jpg);}
+  100%{background-image: url(../images/freelance-work-for-free-quotes-03.jpg);}
   
+}
+footer{
+  color: white;
+  text-align: center;
 }
