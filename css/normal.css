@@ -16,12 +16,12 @@ body{
 }
 #myNavbar{
   position: fixed;
-  width: 100%;
-  border-width: 0 0 1px 0;
-  border-radius: 20px;
+  width: 89%;
+  height: 65px;
   text-decoration: none;
-  background:linear-gradient(to right, lightblue, lightgreen);
-  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);
+  font-weight: bold;
   z-index: 1;
 }
 ul{
@@ -39,15 +39,15 @@ ul{
 
 }
 .button {
-  background-color: #3498db00; 
-  color: black; 
+  background-color: #3498db; 
+  color: rgb(255, 253, 253); 
   padding: 15px 30px; 
   font-family: 'Gagalin', sans-serif;
-  border:3px solid rgb(0, 0, 0);
-  border-color: rgb(255, 255, 255);
-  border-radius: 30px;
   align-self: center;
   margin-top: 20px;
+  margin-left: 5px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);
   font-size: 20px; 
   font-weight: bolder; 
 }

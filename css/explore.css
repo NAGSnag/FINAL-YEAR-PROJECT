@@ -5,13 +5,11 @@ body{
 .searchbar{
     height: 130px;
     background-color: white;
-    margin-top: 100px;
-    width: 85%;
-    border: 3px solid black;
+    margin-top: -5px;
+    width: 98.7%;
     border-radius: 2px;
-    margin-left: 7%;
     padding: 10px;
-  background:lightgrey;
+    background:#28a745;
 }
 .content{
     width: 95%;
@@ -41,9 +39,9 @@ body{
 .card img{
     width: 95%;
     height: 60%;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-top: 2%;
-    border: 1px solid black;
+
 
 }
 .card a{

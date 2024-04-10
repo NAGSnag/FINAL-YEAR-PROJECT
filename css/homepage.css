@@ -24,6 +24,7 @@ background-color: rgb(230, 244, 243);
   height: 62px;
   text-decoration: none;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);
   font-weight: bolder;
   z-index: 1;
 }
