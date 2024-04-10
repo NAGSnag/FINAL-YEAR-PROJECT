@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Provider</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/gagalin');
+        @font-face {
+        font-family: 'Gagalin';
+        src: url('path/to/gagalin.ttf') format('truetype');
+        }
+
+        .container { 
+        height: 150px;
+        position: relative;
+        }
+
+        .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        }
+        footer{
+            color: white;
+            border: 3px solid white;
+            margin-top: 20px;
+            background-color: orangered;
+            /* height: 30px; */
+            border-radius: 12px;
+            width: 100%;
+            padding: 0;
+            padding-top: 20px;
+
+            display: flex;
+            }
+                    
+        body{
+            background:  linear-gradient(to right, rgb(80, 187, 223), violet);
+            color: black;
+            margin-top: 45%;
+            margin-left: 20%;
+            margin-right: 30%;
+            font-style: normal;
+            font-family: 'Gagalin', sans-serif;
+    
+        }
+        .hero{
+            width: 100%;
+            height: 100%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            width: 400px;
+            padding: 15px;
+            text-align: center;
+            color: #333;
+        }
+        .card h1{
+            font-weight: 500;
+            color: white;
+        }
+        .card img{
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            margin-left: 50px;
+        }
+        .card label{
+            display: block;
+            width: 200px;
+            background: #e3362c;
+            color: #fff;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 120px;
+        }
+        .card input{
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id = "image" style="margin-top:-80%;">
+        
+    </div>
+    
+    <form id = "login" style="border: 5PX SOLID black; border-radius: 10px;width:600px;text-align: center;margin-left: 25%;">
+    <div style="background-color: #fff;">
+    <div class="hero">
+        <div class="card">
+            <h1 style="color: black; margin-right: -40px; margin-bottom: -20px;">Register To Become Our Member</h1>
+            <img src = "./images/man-1351346_1280.webp" alt="img" id = "profile-pic">
+            <label for="input-file">Upload Image</label>
+            <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+
+        </div>
+    </div>
+    <div id = "form">
+    <label for = "Username" style = "color: black">Name:</label>
+    <input type = "text" id = "Username" name = "Username" style = "border-radius: 25px;
+    border: 2px solid rgb(9, 9, 9);
+    padding: 20px; 
+    width: 200px;
+    height: 5px;" required>
+    <br><br>
+
+    <label for = "Email" style="margin-right: -10px; color: black;">Email:</label>
+    <input type = "email" id = "Email" name = "Email" style = "border-radius: 25px;
+    border: 2px solid rgb(9, 9, 9);
+    padding: 20px; 
+    width: 200px;
+    height: 5px;
+    margin-left: 20px;" required>
+    <br><br>
+
+    <label for = "Location" style="color: black;">Location:</label>
+    <input type = "text" id = "Location" name = "Location" style = "border-radius: 25px;
+    border: 2px solid rgb(9, 9, 9);
+    padding: 20px; 
+    width: 200px;
+    height: 5px;" required>
+    <br><br>
+
+    <label for = "Contact" style="margin-right:10px; color: black;">Contact:</label>
+    <input type = "number" id = "Contact" name = "Contact" style = "border-radius: 25px;
+    border: 2px solid rgb(9, 9, 9);
+    padding: 20px; 
+    width: 200px;
+    height: 5px;
+    margin-left: -10px;" required>
+    <br><br>
+    <br><br>
+
+    <textarea name = "description" rows = "10" cols = "50" style = "border:2px solid rgb(9, 9, 9); border-radius: 10px; font-family: gagalin; font-size: larger;">Please enter the description of your company here!</textarea>
+
+    <div class="container">
+        <div class="center">
+            <input type = "submit" value = "Sign Up" style = "text-align: center;
+            position: relative;
+            border-radius: 1px;
+            border: 2px solid rgb(9, 9, 9);
+         
+            width: 200px;
+            margin-left:400px;
+            border-radius: 30px;
+            height: 50px;
+            color: rgb(255, 129, 2);
+            font-size: 20px;
+            font-family: 'Gagalin';
+            background-color: rgb(84, 249, 84);
+            color: white;">
+        </div>
+    </div>
+    </div>
+</div>
+
+    </form>
+
+
+    <script>
+        document.getElementById("login").onsubmit = function(event){
+            event.preventDefault();
+        
+            var email = document.getElementById("Email").value;
+            var phone = document.getElementById("Contact").value;
+
+            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if (!email.match(emailRegex)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if(phone.length !== 10){
+                alert("Phone number must be atleast 10 digits");
+            }
+        }
+
+        let profilePic = document.getElementById("profile-pic");
+        let inputFile = document.getElementById("input-file");
+
+        inputFile.onchange = function(){
+            profilePic.src = URL.createObjectURL(inputFile.files[0]);
+        }
+
+</script>
+
+</body>
+</html>

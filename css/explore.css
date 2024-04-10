@@ -9,7 +9,7 @@ body{
     width: 85%;
     border: 3px solid black;
     border-radius: 2px;
-    margin-left: 6%;
+    margin-left: 7%;
     padding: 10px;
   background:lightgrey;
 }
@@ -34,6 +34,7 @@ body{
     /* margin: 20px; */
     margin-left: 25px;
     margin-top: 15px;
+
     text-align:center;
 
 }
