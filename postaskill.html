@@ -3,162 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/normal.css">
+    <title>Post a Skill</title>
     <style>
-        body{
-            background: linear-gradient(to right, lightblue, lightgreen); font-family: 'Gagalin', sans-serif; padding-right: 15px; 
-        }
-        .navbar{
-            background: linear-gradient(to right, lightblue, lightgreen); font-family: 'Gagalin', sans-serif; padding-right: 15px; padding-left: 15px;
-        }
-        .navdiv{
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .logo a{
-            font-size: 35px; font-weight: 600; color: black;
-        }
-        img{
-            display: inline-block;
-            height: 100px;
-            width: 100px;
-        }
-        .hero{
-            width: 100%;
-            height: 100%;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .card{
-            width: 400px;
-            padding: 15px;
+
+        .navbar {
+            background: linear-gradient(to right, lightblue, lightgreen);
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .logo a {
+            font-size: 35px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .hero {
+            background-color: #fff;
+            padding: 50px 0;
             text-align: center;
-            color: #333;
         }
-        .card h1{
+
+        .card {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .card h1 {
             font-weight: 500;
-            color: white;
+            color: #333;
+            margin-bottom: 20px;
         }
-        .card img{
+
+        .card img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            margin-top: 40px;
-            margin-bottom: 30px;
-            margin-left: 50px;
+            margin-bottom: 20px;
         }
-        .card label{
+
+        .card label {
             display: block;
             width: 200px;
-            background: #e3362c;
+            background: #007bff;
             color: #fff;
             padding: 12px;
             margin: 10px auto;
             border-radius: 5px;
             cursor: pointer;
-            margin-left: 120px;
-        }
-        .card input{
-            display: none;
-        }
-        #skill{
-            text-align: center;
-        }
-        input[type="text"] {
-            border: 2px solid rgb(9, 9, 9);
-            border-radius: 25px;
-            padding: 15px; 
-            width: 60%;
-            margin-bottom: 20px;
-            display: block;
-            margin: 20px auto;
+            transition: background-color 0.3s ease;
         }
 
-        input[type="text"] {
-            font-size: 18px;
+        .card label:hover {
+            background-color: #0056b3;
+        }
+
+        .card input {
+            display: none;
+        }
+
+        #form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            flex-grow: 1;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: calc(50% - 10px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
 
         textarea {
-            border: 2px solid rgb(9, 9, 9);
-            border-radius: 25px;
-            padding: 20px; 
-            width: 80%;
             height: 150px;
-            margin-bottom: 20px;
-            display: block;
-            margin: 20px auto;
-            font-family: 'Gagalin', sans-serif;
-            font-size: 18px;
             resize: none;
         }
+
         input[type="submit"] {
-            border-radius: 25px;
-            width: 120px;
-            height: 50px;
-            background: linear-gradient(to right, lightblue, lightgreen);
-            color: black;
-            font-size: 22px;
-            font-family: 'Gagalin', sans-serif;
-            font-weight: 600;
-            margin-top: 20px;
             display: block;
-            margin: 20px auto;
+            width: 100%;
+            padding: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div id="myNavbar">
-        <div class="container">
-    <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.html"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="#login"><span class="medium">LOGIN</span></a></li> 
-      <li class="right-nav"><a href="postaskill.html"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;animation: rainbowBorder 10s infinite;" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.html"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;animation: rainbowBorder 10s infinite;" class="medium">POST A NEED</span></a></li> 
-    </ul>
-        </div>
-    </div>
-.
-    <div class="hero" style="margin-top: 100px;">
-        <div class="card">
-            <h1 style="color: black; margin-right: -40px; margin-bottom: -20px;">Upload your profile pic</h1>
-            <img src = "./images/219970.png" alt="img" id = "profile-pic">
-            <label for="input-file">Upload Image</label>
-            <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
-
-        </div>
-    </div>
-
-    <div id = "form" >
+    <div id="form">
         <form id="skill">
-            <label for="JobTitle" style="font-weight: 600; font-size: xx-large;">Skill:</label>
-            <input type="text" name = "JobTitle" id = "JogTitle" required>
-            
-            <h2>Experience in that skill / No of years you have been working on that</h2>
-            <textarea name = "description" rows="15" cols="100"  required></textarea>
-            <label for="JobTitle" style="font-weight: 600; font-size: xx-large;">LINKS:</label>
-            <input type="text" name = "JobTitle" id = "JogTitle"  style="width:20%" placeholder="GitHub Link">
-            <input type="text" name = "JobTitle" id = "JogTitle" style="width:20%" placeholder="Linked in link">        
-            <label for = "myFile" style="font-weight: 600; font-size:x-large;">Attach resume:</label>
-            <input type = "file" id = "myFile" name = "myFile" required><br><br>
-            <input type = "submit" value="Submit">
-    </form>
+            <div class="hero">
+                <div class="card">
+                    <h1>Upload your profile pic</h1>
+                    <img src="./images/219970.png" alt="Profile Pic" id="profile-pic">
+                    <label for="input-file">Upload Image</label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+                </div>
+            </div>
+            <input type="text" name="name" id="name" placeholder="NAME" required>
+            <input type="text" name="email" id="email"  placeholder="EMAIL" required><br>
+            <input type="text" name="ph" id="ph"  placeholder="CONTACT" required>
+            <input type="text" name="JobTitle" id="JogTitle"  placeholder="SKILLS" required>
+                <br>
+            <label for="description">Experience in that skill / No of years you have been working on that:</label>
+            <textarea name="description" rows="6" style="width: 100%;" required></textarea>
+<br>
+            <label for="links">Links:</label>
+            <input type="text" name="links" style="width:45%;" placeholder="GitHub Link">
+            <input type="text" name="links" style="width:45%;" placeholder="LinkedIn Link">
+
+            <label for="resume">Attach Resume:</label>
+            <input type="file" id="resume" name="resume" required>
+
+            <input type="submit" value="Submit">
+        </form>
     </div>
+
+    <footer>
+        <p>Contact us for any inquiries</p>
+    </footer>
 
     <script>
         let profilePic = document.getElementById("profile-pic");
         let inputFile = document.getElementById("input-file");
 
-        inputFile.onchange = function(){
+        inputFile.onchange = function () {
             profilePic.src = URL.createObjectURL(inputFile.files[0]);
         }
     </script>
-        <footer id="contact" style="width: 100%;height: 200px;background-color: darkslategray;padding: 10px;">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores minima est illum consequatur voluptatem tempora, distinctio sequi pariatur doloribus, quae recusandae laborum in
-             numquam labore. Nemo animi architecto corrupti consectetur. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore doloremque pariatur eveniet aperiam consequatur quam iure enim nam tempora natus. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint excepturi perspiciatis, temporibus asperiores repellat sapiente ipsum consequatur 
-             numquam id doloribus eligendi maxime ullam sit voluptatum, optio vitae provident quos cupiditate et quam. Cum aliquam, natus quos dignissimos tenetur iste quam.
-          </footer>
 </body>
 </html>

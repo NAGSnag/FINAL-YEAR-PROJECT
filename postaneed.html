@@ -3,165 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post a need</title>
-    <link rel="stylesheet" href="./css/normal.css">
+    <title>Post a Need</title>
     <style>
-        @import url('https://fonts.cdnfonts.com/css/gagalin');
-        @font-face {
-            font-family: 'Gagalin';
-            src: url('path/to/gagalin.ttf') format('truetype');
-        }
-        h1{
-            text-align: center;
-            color:black; 
-            font-family: 'Gagalin', sans-serif;
-            font-weight: bolder;
-        }
-        *{
-            text-decoration: none;
-        }
-        .navbar{
-            background: linear-gradient(to right, lightblue, lightgreen); font-family: 'Gagalin', sans-serif; padding-right: 15px; padding-left: 15px;
-        }
-        .navdiv{
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .logo a{
-            font-size: 35px; font-weight: 600; color: black;
-        }
-        img{
-            display: inline-block;
-            height: 100px;
-            width: 100px;
-        }
-        #need{
-            text-align: center;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        input[type="text"] {
-            border: 2px solid rgb(9, 9, 9);
-            border-radius: 25px;
-            padding: 15px; 
-            width: 60%;
-            margin-bottom: 20px;
+        .container {
+            width: 50%;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        label {
             display: block;
-            margin: 20px auto;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        input[type="text"] {
-            font-size: 18px;
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
 
         textarea {
-            border: 2px solid rgb(9, 9, 9);
-            border-radius: 25px;
-            padding: 20px; 
-            width: 80%;
             height: 150px;
-            margin-bottom: 20px;
-            display: block;
-            margin: 20px auto;
-            font-family: 'Gagalin', sans-serif;
-            font-size: 18px;
             resize: none;
         }
 
-        input[type="file"] {
-            margin-bottom: 20px;
-            display: block;
-            margin: 20px auto;
+        .upload-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
-        #bgImage {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        #form{
-            background: linear-gradient(to right, rgba(173, 216, 230, 0.368), rgba(144, 238, 144, 0.272));
-            margin-left: 10%;
-            padding: 10px;
-            border-radius: 20px;
-            border: 2px solid black;
-            
+        .upload-btn:hover {
+            background-color: #0056b3;
         }
 
         input[type="submit"] {
-            border-radius: 25px;
-            width: 120px;
-            height: 50px;
-            background: linear-gradient(to right, lightblue, lightgreen);
-            color: black;
-            font-size: 22px;
-            font-family: 'Gagalin', sans-serif;
-            font-weight: 600;
-            margin-top: 20px;
             display: block;
-            margin: 20px auto;
+            width: 100%;
+            padding: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
-<body style="background: linear-gradient(to right, lightblue, lightgreen);">
+<body>
 
-    <div id="myNavbar">
-        <div class="container">
-    <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.html"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="#login"><span class="medium">LOGIN</span></a></li> 
-      <li class="right-nav"><a href="postaskill.html"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;animation: rainbowBorder 10s infinite;" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.html"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;animation: rainbowBorder 10s infinite;" class="medium">POST A NEED</span></a></li> 
-    </ul>
-        </div>
-    </div>
-.
-    
-    <div id = "form" style="margin-top: 100px;width: 80%;">
+<div class="container">
+    <h1>Post a Need</h1>
     <form id="need">
-        <label for="JobTitle" style="font-weight: 600; font-size: xx-large;">Job title</label>
-        <input type="text" name = "JobTitle" id = "JogTitle" required>
+        <label for="JobTitle">YOUR NEED TITTLE:</label>
+        <input type="text" name="JobTitle" id="JobTitle" required>
         
-        <h2>Description of the role:</h2>
-        <textarea name = "description" rows="15" cols="100"  required></textarea>
+        <label for="description">Description of your Need:</label>
+        <textarea name="description" id="description" rows="6" required></textarea>
 
-        <label for = "myFile" style="font-weight: 600; font-size:x-large;">Attach file:</label>
-        <input type = "file" id = "myFile" name = "myFile" required><br><br>
+        <label for="resume">Attach discription if exists:</label>
+        <input type="file" id="resume" name="resume" required>
 
-        <label for = "banner" style="font-weight: 600; font-size:x-large;">Choose banner:</label>
-        <input type="file" id="imageInput" accept="image/*">
-        <img id="bgImage" src="" alt="Background Image">
-        
-        <input type = "submit" value="Submit">
+        <label for="banner">Choose Banner Image:</label>
+        <input type="file" id="banner" name="banner">
 
-
+        <input type="submit" value="Submit">
     </form>
-    </div>
+</div>
 
-    <script>
-        const imageInput = document.getElementById('imageInput');
-        const bgImage = document.getElementById('bgImage');
+<footer>
+    <p>Contact us for any inquiries</p>
+</footer>
 
-        imageInput.addEventListener('change', function() {
-        const file = this.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            bgImage.src = e.target.result;
-            bgImage.style.display = 'block';
-        };
-
-        reader.readAsDataURL(file);
-        });
-    </script>
-        <footer id="contact" style="width: 100%;height: 200px;background-color: darkslategray;padding: 10px;margin-top: 50px    ;">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores minima est illum consequatur voluptatem tempora, distinctio sequi pariatur doloribus, quae recusandae laborum in
-             numquam labore. Nemo animi architecto corrupti consectetur. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore doloremque pariatur eveniet aperiam consequatur quam iure enim nam tempora natus. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint excepturi perspiciatis, temporibus asperiores repellat sapiente ipsum consequatur 
-             numquam id doloribus eligendi maxime ullam sit voluptatum, optio vitae provident quos cupiditate et quam. Cum aliquam, natus quos dignissimos tenetur iste quam.
-          </footer>
 </body>
 </html>

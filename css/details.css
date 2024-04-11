@@ -97,3 +97,6 @@ textarea {
     content: '> ';
     color: green; 
 } 
+p{
+    margin: 20px;
+}
