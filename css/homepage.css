@@ -184,7 +184,7 @@ footer{
   background-color: #fff;
   width: 30%;
   margin:5px;
-  border: 1px solid wheat;
+
 
 }
 
@@ -204,4 +204,9 @@ footer{
 
 .card-statistics li {
   margin-bottom: 5px;
+}
+h1{
+  color: green;
+  font-size: 50px;
+  margin-left: 20%;
 }
