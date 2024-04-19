@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="margin-left: 40%;">ADMIN PAGE</h1>
+   <div style="display: flex;">
+    <div style="border: 2px solid  black;width: 30%;padding: 10px;">
+        <form id="registration-form" class="form">
+            <h3>USER DATA</h3>
+            <div class="form-group">
+                <label for="Email" >Search-Email:</label>
+                <input type="email" id="Email" name="Email" class="form-input" required>
+                <button>search</button>
+            <div class="form-group">
+                <img id="profile-pic" src="./images/219970.png" style="width: 200px" alt=""><br>
+                <label for="input-file" class>Upload Profile Picture</label>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" class="file-upload-input">
+            </div>
+            <div class="form-group">
+                <label for="Username" >Name:</label>
+                <input type="text" id="Username" name="Username" class="form-input" required>
+            </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="Password" >Password:</label>
+                <input type="password" id="Password" name="Password" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="bio" >Bio:</label>
+                <textarea id="bio" name="bio" rows="5" class="form-textarea">Enter your bio...</textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" >Update</button>
+            </div>
+        </form>
+    </div>
+    <div style="width:40%;border: 2px solid black;padding: 10px;">
+        <div class="card">
+            <h1>COMPANEY PROFILE DATA</h1>
+            <label for="email">Search-email</label> <input type="email" id="Email" name="Email" placeholder="Email" required><button>search</button><br>
+            <img src="./images/man-1351346_1280.webp" style="width: 200px;" alt="img" id="profile-pic"><br>
+            <label for="input-file">Upload Company Logo</label>
+            <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+    
+            <form id="login">
+                <input type="text" id="Username" name="Username" placeholder="Name" required>
+                <input type="text" id="password" name="password" placeholder="password" required><br>
+                <input type="text" id="Location" name="Location" placeholder="Location" required>
+                <input type="tel" id="Contact" name="Contact" placeholder="Contact" required><br>
+                <textarea name="description" placeholder="Please enter the description of your company here!" required></textarea>
+                <input type="submit" value="Update">
+            </form>
+    
+        </div>
+
+    </div>
+</div>
+    <div style="display: flex;">
+        <div style="width: 45%;border: 2px solid black;">
+            <h1>Skill post edit</h1>
+            <label for="id" >Search-id:</label>
+            <input type="text" id="id" name="id"required> <button>search</button>
+            <form id="skill">
+                <div class="hero">
+                    <div class="card">
+                        <img src="./images/219970.png" alt="Profile Pic" id="profile-pic" style="width: 30%;"><br>
+                        <label for="input-file">Upload Image</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+                    </div>
+                </div>
+                <input type="text" name="name" id="name" placeholder="NAME" required>
+                <input type="text" name="email" id="email"  placeholder="EMAIL" required><br>
+                <input type="text" name="ph" id="ph"  placeholder="CONTACT" required>
+                <input type="text" name="JobTitle" id="JogTitle"  placeholder="SKILLS" required>
+                    <br>
+                <label for="description">Experience in that skill / No of years you have been working on that:</label>
+                <textarea name="description" rows="6" style="width: 100%;" required></textarea>
+    <br>
+                <label for="links">Links:</label>
+                <input type="text" name="links" style="width:45%;" placeholder="GitHub Link">
+                <input type="text" name="links" style="width:45%;" placeholder="LinkedIn Link">
+    
+                <label for="resume">Attach Resume:</label>
+                <input type="file" id="resume" name="resume" required>
+                    <br>
+                <input type="submit" value="Update">
+            </form>
+        </div>
+        <div style="width: 50%;border: 2px solid black;">
+            <h1>JOB POST EDIT</h1>
+            <div class="container">
+                <label for="id" >Search-id:</label>
+                <input type="text" id="id" name="id"required> <button>search</button><br><br>
+                <form id="jobForm">
+                    <label for="logo">Upload Banner:</label>
+                    <input type="file" id="logo" name="logo" accept="image/png, image/jpeg" required>
+        
+                    <img id="logoPreview" src="#" alt="Logo Preview" style="display: none;"><br>
+        
+                    <label for="name">Company Name:</label>
+                    <input type="text" id="name" name="name" required><br>
+        
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required><br>
+        
+                    <label for="salary">Salary / month:</label>
+                    <input type="text" id="salary" name="salary" required><br>
+        
+                    <label for="description">Job Description:</label>
+                    <textarea id="description" name="description" required></textarea><br>
+        
+                    <label for="responsibilities">Responsibilities:</label>
+                    <textarea id="responsibilities" name="responsibilities" required></textarea>
+        
+                    <label for="qualifications">Qualifications:</label>
+                    <textarea id="qualifications" name="qualifications" required></textarea>
+        
+                    <label for="vacancy">Vacancy:</label>
+                    <input type="number" id="vacancy" name="vacancy" required>
+        
+                    <label for="nature">Nature:</label>
+                    <select id="nature" name="nature" required>
+                        <option value="fulltime">Full-time</option>
+                        <option value="parttime">Part-time</option>
+                        <option value="contract">Contract</option>
+                    </select>
+        
+                    <label for="deadline">PUBLISHED DATE:</label>
+                    <input type="datetime-local" id="deadline" name="deadline" required> <br><br>
+                    <label for="deadline">Deadline for Applying:</label>
+                    <input type="datetime-local" id="deadline" name="deadline" required> <br><br>
+        
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div style="width:45%;border: 2px solid black;">
+            <h1>Need post edit</h1>
+            <label for="id" >Search-id:</label>
+                <input type="text" id="id" name="id"required> <button>search</button><br><br>
+            <div class="container">
+                <form id="need">
+                    <label for="JobTitle">YOUR NEED TITTLE:</label>
+                    <input type="text" name="JobTitle" id="JobTitle" required><br>
+                    
+                    <label for="description">Description of your Need:</label>
+                    <textarea name="description" id="description" rows="6" required></textarea><br>
+            
+                    <label for="resume">Attach discription if exists:</label>
+                    <input type="file" id="resume" name="resume" required><br>
+            
+                    <label for="banner">Choose Banner Image:</label>
+                    <input type="file" id="banner" name="banner"><br>
+            
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
