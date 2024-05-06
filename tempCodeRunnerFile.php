@@ -1,0 +1,2 @@
+<?php
+reject_applicant

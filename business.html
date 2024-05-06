@@ -46,19 +46,14 @@
             display: block;
         }
 
-        .card label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
         .card input[type="file"] {
-            display: none;
+            display: block;
+            margin-bottom: 15px;
         }
 
         .card input[type="text"],
         .card input[type="email"],
-        .card input[type="number"],
+        .card input[type="tel"],
         .card textarea {
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -85,35 +80,35 @@
         .card input[type="submit"]:hover {
             background-color: #357ae8;
         }
-
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="card">
-        <h1>Register To Become Our Member</h1>
-        <img src="./images/man-1351346_1280.webp" style="width: 200px;" alt="img" id="profile-pic">
-        <label for="input-file">Upload Company Logo</label>
-        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
-
-        <form id="login">
+        <form id="login" method="post" action="./php/business_register.php" enctype="multipart/form-data">
+            <h1>Register To Become Our Member</h1>
+            <img src="./images/man-1351346_1280.webp" alt="img" id="profile-pic">
+           
+            <input type="file" accept="image/jpeg, image/png, image/jpg" id="logo" name="logo">
+            
             <input type="text" id="Username" name="Username" placeholder="Name" required>
             <input type="email" id="Email" name="Email" placeholder="Email" required>
             <input type="text" id="password" name="password" placeholder="password" required>
             <input type="text" id="Location" name="Location" placeholder="Location" required>
             <input type="tel" id="Contact" name="Contact" placeholder="Contact" required>
             <textarea name="description" placeholder="Please enter the description of your company here!" required></textarea>
-            <input type="submit" value="Sign Up"><a href="exploreforbusiness.html">direct</a>
+            <input type="submit" value="Sign Up">
         </form>
-
     </div>
 </div>
 
 <script>
-    document.getElementById("login").onsubmit = function(event){
+document.addEventListener("DOMContentLoaded", function() {
+    // Form validation and submit handler
+    document.getElementById("login").onsubmit = function(event) {
         event.preventDefault();
-    
+
         var email = document.getElementById("Email").value;
         var phone = document.getElementById("Contact").value;
 
@@ -123,18 +118,23 @@
             return;
         }
 
-        if(phone.length !== 10){
-            alert("Phone number must be 10 digits");
+        if (phone.length !== 10) {
+            alert("Phone number must be 10 digits.");
+            return;
         }
-    }
 
-    let profilePic = document.getElementById("profile-pic");
-    let inputFile = document.getElementById("input-file");
+        // If all validations pass, submit the form
+        this.submit();
+    };
 
-    inputFile.onchange = function(){
+    // File change event handler for profile picture preview
+    var profilePic = document.getElementById("profile-pic");
+    var inputFile = document.getElementById("logo");
+
+    inputFile.onchange = function() {
         profilePic.src = URL.createObjectURL(inputFile.files[0]);
-    }
-
+    };
+});
 </script>
 
 </body>

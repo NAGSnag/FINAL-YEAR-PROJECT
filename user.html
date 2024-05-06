@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Seeker Registration</title>
     <style>
-        /* Resetting default browser styles */
-        * {
+   /* Resetting default browser styles */
+   * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -110,12 +110,11 @@
 </head>
 <body>
     <div class="container">
-        <form id="registration-form" class="form">
+        <form action="./php/freelancer_register.php" class="form" method="post" enctype="multipart/form-data">
             <h1 class="form-title">Job Seeker Registration</h1>
             <div class="form-group">
-                <img id="profile-pic" src="./images/219970.png" style="width: 200px;margin-left: 32%;" alt="">
-                <label for="input-file" class="file-upload-label">Upload Profile Picture</label>
-                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" class="file-upload-input">
+                <img id="profile-pic" src="./images/219970.png" style="width: 200px; margin-left: 32%;" alt="">
+                <input type="file" id="profile_image" name="profile_image">
             </div>
             <div class="form-group">
                 <label for="Username" class="form-label">Name:</label>
@@ -134,26 +133,26 @@
                 <textarea id="bio" name="bio" rows="5" class="form-textarea">Enter your bio...</textarea>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn-submit">Register</button><a href="explore.html">direct</a>
+                <button type="submit" class="btn-submit">Register</button>
             </div>
         </form>
     </div>
 
     <script>
         document.getElementById("registration-form").onsubmit = function(event){
-            event.preventDefault();
-        
+            // Commenting out this code to let form submit normally
+            // event.preventDefault();
+            
             var email = document.getElementById("Email").value;
-
             var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            
             if (!email.match(emailRegex)) {
                 alert("Please enter a valid email address.");
                 return;
             }
         }
 
-        let inputFile = document.getElementById("input-file");
-
+        let inputFile = document.getElementById("profile_image");
         inputFile.onchange = function(){
             let profilePic = document.getElementById("profile-pic");
             profilePic.src = URL.createObjectURL(inputFile.files[0]);

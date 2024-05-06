@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/normal.css">
+    <script>
+      // Function to get the value of a specific query parameter
+      function getQueryParameter(name) {
+          const params = new URLSearchParams(window.location.search);
+          return params.get(name);
+      }
+
+      // When the page loads, check for the 'username' query parameter and display an alert
+      window.onload = function() {
+          const username = getQueryParameter("error");
+          if (username) {
+              alert("ALERT...! " + username + "!");
+          }
+      };
+  </script>
 </head>
 <body>
     <div>
         <div class="who" >
-          <h1 id="login" style="text-align: center;font-weight: bolder;font-size: 50px; font-family: Arial, sans-serif;">WHO ARE YOU...??</h1>
+          <h1 id="login" style="text-align: center;font-weight: bolder;font-size: 50px; font-family: Arial, sans-serif;">REGISTER AS...??</h1>
           <br>
           <div style="display: flex;">
           <div style="width: 50%;">
@@ -22,7 +37,7 @@
             <h1 style="text-align: center;margin-left: -28%;padding-top: 15px;">JOB PROVIDER</h1>
         </div>
         </div>
-        <a href="adminlogin.html"> <button class="button" style="margin-left: 41%;border-color: white;">Login as Admin</button></a> <br><br> 
+        <a href="login.html"> <button class="button" style="margin-left: 45%;border-color: white;">Login</button></a> <br><br> 
         </div>
         </div>
         
