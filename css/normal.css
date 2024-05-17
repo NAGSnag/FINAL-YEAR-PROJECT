@@ -16,7 +16,7 @@ body{
 }
 #myNavbar{
   position: fixed;
-  width: 89%;
+  width: 90%;
   height: 65px;
   text-decoration: none;
   background-color: rgb(255, 255, 255);
@@ -41,11 +41,10 @@ ul{
 .button {
   background-color: #3498db; 
   color: rgb(255, 253, 253); 
-  padding: 15px 30px; 
   font-family: 'Gagalin', sans-serif;
-  align-self: center;
-  margin-top: 20px;
+
   margin-left: 5px;
+  margin-top: 25px;
   border-radius: 3px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);
   font-size: 20px; 

@@ -2,7 +2,7 @@
 // Error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -45,7 +45,10 @@ function getUserNameIfValid($conn, $email, $password, $table) {
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($name, $stored_password);
         $stmt->fetch();
+        
         if (password_verify($password, $stored_password)) {
+            $_SESSION['user']=$userName;
+            $_SESSION['email']=$email;
             return $name;
         }
     }
@@ -55,7 +58,9 @@ function getUserNameIfValid($conn, $email, $password, $table) {
 
 // Check in 'users' table
 $userName = getUserNameIfValid($conn, $email, $password, "users");
+
 if ($userName) {
+    $_SESSION['type']='user';
     header("Location: ../explore.php?username=" . urlencode($userName));
     exit;
 }
@@ -63,6 +68,7 @@ if ($userName) {
 // Check in 'business' table
 $businessName = getUserNameIfValid($conn, $email, $password, "business");
 if ($businessName) {
+    $_SESSION['type']='business';
     header("Location: ../exploreforbusiness.php?username=" . urlencode($businessName).'&email='.$email);
     exit;
 }

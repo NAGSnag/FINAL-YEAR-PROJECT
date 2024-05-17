@@ -20,18 +20,16 @@
     $password = "";
     $dbname = "fyproject";
     
-    // Connect to the database
     $conn = new mysqli($servername, $username, $password, $dbname);
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     
-    // Get the ID from the URL
+
     if (isset($_GET['id'])) {
-        $need_id = intval($_GET['id']);  // Convert to integer to ensure valid ID
-        
-        // Fetch the record from the 'needs' table using the given ID
+        $need_id = intval($_GET['id']);  
+
         $query = "SELECT * FROM needs WHERE id = ?";
         $stmt = $conn->prepare($query);
         
@@ -39,12 +37,12 @@
             die("Error preparing statement: " . $conn->error);
         }
     
-        $stmt->bind_param("i", $need_id);  // Bind the ID parameter
+        $stmt->bind_param("i", $need_id);  
         $stmt->execute();
-        $result = $stmt->get_result();  // Fetch the result set
+        $result = $stmt->get_result();  
         
         if ($result->num_rows > 0) {
-            // Fetch the record
+     
             $need = $result->fetch_assoc();
         }
     }

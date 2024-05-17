@@ -17,7 +17,15 @@
   <li class="right-nav"><a href="who.html" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
   <li class="right-nav"><a href="#about"><span class="medium"></span>ABOUT</a></li>
   <li class="right-nav"><a href="#contact"><span class="medium">CONTACT</span></a></li>
-  <li class="right-nav"><a href="explore.php" ><span class="medium" style="border: 4px solid white;padding: 10px;border-radius: 20px;">Explore</span></a></li> 
+  <?php
+session_start();
+if (@$_SESSION['type']=='business') { 
+  echo '<li class="right-nav"><a href="exploreforbusiness.php"><span class="medium" style="border: 4px solid white; padding: 10px; border-radius: 20px;">Explore</span></a></li>';
+} else {
+  echo '<li class="right-nav"><a href="explore.php"><span class="medium" style="border: 4px solid white; padding: 10px; border-radius: 20px;">Explore</span></a></li>';
+}
+?>
+
 </ul>
      </div>
 </div>

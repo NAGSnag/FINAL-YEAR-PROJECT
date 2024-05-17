@@ -72,14 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Insert into the 'explore' table
         $stmt_explore = $conn->prepare("INSERT INTO explore 
-            (id, name, banner, type, rating, description,email) 
-            VALUES (?, ?, ?, ?, ?, ?.?)");
+            (id, name, banner, type, rating, description,email,information,searchtype,exp) 
+            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)");
 
         $type = "Job Post";  // Default type for explore
         $rating = 0.0;       // Default rating (adjust as needed)
 
         $stmt_explore->bind_param(
-            "issssssa<?php
+            "issssssass<?php
 // Error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -159,7 +159,10 @@ $conn->close();
             $type,
             $rating,
             $title,
-            $company_email // Use job description or other description
+            $company_email,
+            $job_description,
+            $job_type,
+            $experience
         );
 
         if ($stmt_explore->execute()) {

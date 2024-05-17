@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $github_link = $_POST['links1'];
     $linkedin_link = $_POST['links2'];
     $exp = $_POST['exp'];
+    $job_type = $_POST['type'];
     $pay_pass=$_POST['pay_pass'];
 
     // Handle file uploads
@@ -99,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Insert into the skills table
 $stmt = $conn->prepare("
 INSERT INTO skills (name, email, contact, skills, title, description, skill_explanation, github_link, linkedin_link, profile_image, resume, exp, banner, qr, pay_pass) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)
 ");
 
 if (!$stmt) {
@@ -131,8 +132,8 @@ if ($stmt->execute()) {
 
     // Insert into the explore table
     $stmt_explore = $conn->prepare("
-    INSERT INTO explore (id, name, banner, type, rating, description, email) 
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO explore (id, name, banner, type, rating, description, email,information,searchtype,exp) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)
     ");
 
     if (!$stmt_explore) {
@@ -142,14 +143,17 @@ if ($stmt->execute()) {
     $type = "Skill Post";
     $rating = 0.0;
 
-    $stmt_explore->bind_param("issssss", 
+    $stmt_explore->bind_param("isssssssss", 
         $last_id, 
         $name, 
         $banner, 
         $type, 
         $rating, 
         $title,
-        $email
+        $email,
+        $description,
+        $job_type,
+        $exp
     );
 
     if ($stmt_explore->execute()) {

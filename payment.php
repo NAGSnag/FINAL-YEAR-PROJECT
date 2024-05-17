@@ -185,6 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     if ($stmt->execute()) {
         echo "<p>Rating submitted successfully!</p>";
+        header('location:http://localhost/FINAL%20YEAR%20PROJECT/FINAL-YEAR-PROJECT/explore.php?keyword=Python&type=IT&exp=0&message=Rating_successful');
     } else {
         echo "Error updating 'explore': " . $stmt->error;
     }
