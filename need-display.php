@@ -142,7 +142,7 @@
             <!-- right -->
             <div style="width: 30%;margin-top: 5%;">
                 <div style="height: 400px;background-color: rgba(0, 255, 115, 0.099);margin:5px;padding: 10px;">
-                <h1 style="color: black;text-align: start;margin-left: 8%;">Summary</h1>
+                <h1 style="color: black;text-align: start;margin-left: 8%;">Need Summary</h1>
                 <ul style="margin-top: 40px;">
                     <li class="li">USERNAME:<?php  echo htmlspecialchars($need['username'])?><li>
                     <li class="li">EMAIL:<?php  echo htmlspecialchars($need['email'])?><li>

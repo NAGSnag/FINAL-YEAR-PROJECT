@@ -113,12 +113,14 @@
 <div id="myNavbar" style="margin-left:30px">
         <div class="container" >
     <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="homepage.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">HOME</span></a>/</li> 
+    <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
+      <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
+      <li class="right-nav"><a href="postaneed.php "><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
+      <li class="right-nav"><a href="exploreforbusiness.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">EXPLORE</span></a>/</li> 
     </ul>
         </div>
     </div>
-    <div class="container1" >
+    <div class="container1" style="padding-bottom:500px" >
         <h1>Applicants List</h1>
         <?php
 error_reporting(E_ALL);

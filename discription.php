@@ -88,15 +88,44 @@ echo "<img src='data:image/jpeg;base64," . base64_encode($job['banner']) . "' al
         <div style="display: flex;">
             <!-- left -->
             <div style="width: 70%;">
-                <div style="height: 150px;background-color: rgb(255, 255, 255);display: flex;">
-                    <div style="display: flex;margin-top: 45px;margin-left: 2%;">
-                        <div style=""><img src="./images/logo.png" width="100px" alt=""></div>
-                    <div style="display: block;padding: 15px;font-size: x-large;font-weight: bolder;text-align:start;"><h1 style="margin-top: -20px;color: black;"><?php  echo htmlspecialchars($job['company_name']) . "";?></h1>
-                        <div style="margin-top: 20px;"> <?php  echo "Location: " . htmlspecialchars($job['location']) . ""; ?> 📍 fulltime⌚   <?php echo "Salary:" . htmlspecialchars($job['salary']) . ""; ?> 💵</div>
-                    </div>
-                    </div>
+            <div style="display: flex; margin-top: 45px; margin-left: 2%;">
+    <?php
+    // Fetch and display the company logo
+    $company_logo = ''; // Initialize variable to store logo data
+    $query_logo = "SELECT logo FROM business WHERE email = ?";
+    $stmt_logo = $conn->prepare($query_logo);
+    
+    if ($stmt_logo) {
+        $stmt_logo->bind_param("s", $job['email']);
+        $stmt_logo->execute();
+        $stmt_logo->store_result();
 
-                </div><br><br>
+        if ($stmt_logo->num_rows > 0) {
+            $stmt_logo->bind_result($logo);
+            $stmt_logo->fetch();
+            $company_logo = $logo;
+        }
+        
+        $stmt_logo->close();
+    }
+    
+    if (!empty($company_logo)) {
+        echo '<div><img src="data:image/jpeg;base64,' . base64_encode($company_logo) . '" width="100px" alt=""></div>';
+    } else {
+        echo '<div><img src="./images/logo.png" width="100px" alt=""></div>'; // Placeholder image if logo is not found
+    }
+    ?>
+    
+    <div style="display: block; padding: 15px; font-size: x-large; font-weight: bolder; text-align: start;">
+        <h1 style="margin-top: -20px; color: black;"><?php echo htmlspecialchars($job['company_name']); ?></h1>
+        <div style="margin-top: 20px;">
+            <?php echo "Location: " . htmlspecialchars($job['location']) . " 📍 fulltime⌚   Salary: " . htmlspecialchars($job['salary']) . " 💵"; ?>
+        </div>
+    </div>
+</div>
+
+
+           
                 <div><h1>Job description</h1>
                 <?php   echo "<p>" . nl2br(htmlspecialchars($job['job_description'])) . "</p>"; ?>
                     

@@ -94,7 +94,7 @@ if (isset($_GET['id'])) {
             <!-- right -->
             <div style="width: 33%;margin-top: 5%;">
                 <div style="background-color: rgba(0, 255, 115, 0.099);margin:5px;padding: 10px;">
-                <h1 style="color: black;text-align: start;margin-left: 8%;">Summary</h1>
+                <h1 style="color: black;text-align: start;margin-left: 8%;">Skill Summary</h1>
                 <ul style="margin-top: 40px;font-size:5px">
                     <li class="li">USERNAME: <?php echo htmlspecialchars($skill['name']); ?></li>
                     <li class="li">EMAIL: <?php echo htmlspecialchars($skill['email']); ?></li>

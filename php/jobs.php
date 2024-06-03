@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $responsibilities = $_POST['responsibilities'];
     $qualifications = $_POST['qualifications'];
     $experience = $_POST['exp'];
-    $skills=$_POST['skill']
+    $skills = $_POST['skill'];
     $vacancy = $_POST['vacancy'];
     $title = $_POST['title'];
     $nature = $_POST['nature'];
@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert into the 'jobs' table
     $stmt = $conn->prepare("INSERT INTO jobs 
-        (banner, company_name, location, salary, job_description, responsibilities, qualifications, experience, vacancy, nature, published_date, job_type, application_deadline,title,email,skill) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+        (banner, company_name, location, salary, job_description, responsibilities, qualifications, experience, vacancy, nature, published_date, job_type, application_deadline, title, email, skill) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param(
-        "sssssssissssssss",
+        "sssssssisissssss",
         $banner_blob,
         $company_name,
         $location,
@@ -72,31 +72,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Insert into the 'explore' table
         $stmt_explore = $conn->prepare("INSERT INTO explore 
-            (id, name, banner, type, rating, description,email,information,searchtype,exp) 
-            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)");
+            (id, name, banner, type, rating, description, email, information, searchtype, exp) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         $type = "Job Post";  // Default type for explore
         $rating = 0.0;       // Default rating (adjust as needed)
 
         $stmt_explore->bind_param(
-            "issssssass<?php
-// Error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+            "isssssssss",
+            $last_id,
+            $company_name,
+            $banner_blob,
+            $type,
+            $rating,
+            $title,
+            $company_email,
+            $job_description,
+            $job_type,
+            $experience
+        );
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "fyproject";
+        if ($stmt_explore->execute()) {
+            header("Location: ../explore.php?status=success");
+            exit;
+        } else {
+            echo "Error updating 'explore': " . $stmt_explore->error;
+        }
 
+        $stmt_explore->close();
+    } else {
+        echo "Error posting job: " . $stmt->error;
+    }
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    $stmt->close();
 }
 
-
+// Fetch job description if job ID is provided
 if (isset($_GET['id'])) {
     $job_id = intval($_GET['id']);  // Ensure it's a valid integer
     
@@ -135,10 +146,10 @@ if (isset($_GET['id'])) {
             // Fetch the 'discription' record
             $discription = $result->fetch_assoc();
             
-            echo "<h2>Discription for this Job:</h2>";
+            echo "<h2>Description for this Job:</h2>";
             echo "<p>" . nl2br(htmlspecialchars($discription['description'])) . "</p>";  // Display the description
         } else {
-            echo "<p>Not registered in 'discription'.</p>";  // Email not found in 'discription'
+            echo "<p>Not registered in 'description'.</p>";  // Email not found in 'discription'
         }
         
         $stmt->close();
@@ -148,36 +159,6 @@ if (isset($_GET['id'])) {
     }
 } else {
     echo "<p>Job ID not provided in the URL.</p>";
-}
-
-$conn->close();
-?>
-",
-            $last_id,
-            $company_name,
-            $banner_blob,
-            $type,
-            $rating,
-            $title,
-            $company_email,
-            $job_description,
-            $job_type,
-            $experience
-        );
-
-        if ($stmt_explore->execute()) {
-            header("Location: ../explore.php?status=success");
-            exit;
-        } else {
-            echo "Error updating 'explore': " . $stmt_explore->error;
-        }
-
-        $stmt_explore->close();
-    } else {
-        echo "Error posting job: " . $stmt->error;
-    }
-
-    $stmt->close();
 }
 
 $conn->close();

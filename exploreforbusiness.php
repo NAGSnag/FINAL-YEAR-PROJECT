@@ -32,7 +32,7 @@ $email=$_SESSION['email'];?>
     <ul>
       <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
       <li class="right-nav"><?php echo "<a href='applicants.php?email=" . $email . "'>"; ?><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">Applicants</span></a></li>
-      <li class="right-nav"><a href="postajob.html"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A JOB</span></a>/</li> 
+      <li class="right-nav"><a href="postajob.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A JOB</span></a>/</li> 
       <li class="right-nav"><a href="companey_updates.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">NEWS</span></a>/</li> 
       <li class="right-nav"><a href="addnews.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">ADD NEWS</span></a>/</li> 
     </ul>
