@@ -10,22 +10,28 @@
 </head>
 <body>
 
-<div class="main-nav">
-<div id="myNavbar" style="width: 100%;margin-top: -10px;">
+<div class="main-nav" style="margin-top: -20px;">
+<div id="myNavbar" style="width: 95%;margin-top:10px;margin-left:35px;height:50px;padding-bottom:10px">
         <div class="container">
     <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="font-size:50px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="postaskill.html"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.html"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span>/</a>/</li> 
+      <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="font-size:38px;margin-left:-100px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
+      <li class="right-nav"><a href="postaskill.php"><span style="font-size:15px;padding:-10px" class="medium">POST A SKILL</span></a></li>
+      <li class="right-nav"><a href="postaneed.php"><span style="font-size:15px;padding-10px" class="medium">POST A NEED</span></a>/</li> 
+      <li class="right-nav"><a href="explore.php"><span style="font-size:15px;padding:-10px" class="medium">EXPLORE</span></a>/</li> 
 
     </ul>
         </div>
     </div>
 </div>
 
-<main class="content">
-    <div class="section" id="most-recent">
-        <h2 class="section-title">Most Recent</h2>
+<main class="content" style="width: 100%;background-color:white;color:black;font-size:medium;font-weight:">
+<h1 style="text-align: center; color: rgba(0,0,5); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);font-size:50px">Company Chronicles</h1>
+We believe in transparency, communication, and keeping our stakeholders informed. Our news page serves as a central hub for all updates, announcements, and developments related to our company. Whether it's new product launches, strategic partnerships, team expansions, or industry insights, you'll find it all here.
+
+Stay tuned to this space to get the latest scoop on what's happening behind the scenes . We're committed to sharing our journey with you, our valued stakeholders, and keeping you engaged every step of the way.
+
+From exciting milestones to important initiatives, our news page is your go-to destination for staying in the loop. Join us as we continue to innovate, grow, and make strides.<div class="section" id="most-recent">
+        <h1 class="section-title" style="color:black;font-size:30px">Most Recent</h1>
         <div class="cards">
             <?php
             $servername = "localhost";
@@ -65,7 +71,7 @@
     </div>
 
     <div class="section" id="others">
-        <h2 class="section-title">Others</h2>
+        <h1 class="section-title" style="color:black;font-size:30px">Others</h1>
         <div class="cards">
             <?php
             // Fetch older news
@@ -95,6 +101,7 @@
         </div>
     </div>
 </main>
-
+        </div>
+        <?php include './php/footer.php'; ?>
 </body>
 </html>

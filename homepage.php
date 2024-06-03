@@ -5,20 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/homepage.css">
     <title>Document</title>
+    <style> 
+    .testimonialc {
+            display: flex;
+            padding-bottom: 20px;
+            padding-left:50px;
+            margin-bottom: -20px;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 10px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .testimonial .author {
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-left:140px;
+            width: 130px;
+            height: 130px;
+        }</style>
 
 </head>
 <body>
+  <?php session_start();
+  ?>
 <div class="bodytab">
   <div id="myNavbar">
     <div class="container">
 <ul>
   <!-- <li style="float:left"><a href="#home"><img class="navlogo" src="images/logo4.png" alt=""></a></li> -->
   <li style="float:left;margin-top: -25px;"><a href="#home"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-  <li class="right-nav"><a href="who.html" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
+  <li class="right-nav"><a href="who.php" style="background-color: green;padding-right:10px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">@<?php echo $_SESSION['user'];?></span></a></li> 
   <li class="right-nav"><a href="#about"><span class="medium"></span>ABOUT</a></li>
   <li class="right-nav"><a href="#contact"><span class="medium">CONTACT</span></a></li>
   <?php
-session_start();
 if (@$_SESSION['type']=='business') { 
   echo '<li class="right-nav"><a href="exploreforbusiness.php"><span class="medium" style="border: 4px solid white; padding: 10px; border-radius: 20px;">Explore</span></a></li>';
 } else {
@@ -42,42 +77,70 @@ if (@$_SESSION['type']=='business') {
 <div class="vacancies-title" style="margin-left: 2%;color:whit;font-size: xx-large;">Vacancies</div>
 <div class="vacancies-container" style="display: flex;">
 
+<?php
+// Establishing a connection to the MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "fyproject";
 
-  <div class="vacancy-card">
-    <div class="card-heading">TECHNOLOGY</div>
-    <ul class="card-statistics">
-      <li>Total Posts: 20</li>
-      <li>Total vacancy: 50</li>
-      <li>Total Applicants: 450</li>
-    </ul>
-  </div>
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
-  <div class="vacancy-card">
-    <div class="card-heading">Marketing</div>
-    <ul class="card-statistics">
-      <li>Total Posts: 20</li>
-      <li>Total vacancy: 50</li>
-      <li>Total Applicants: 450</li>
-    </ul>
-  </div>
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-  <div class="vacancy-card">
-    <div class="card-heading">Customer Service</div>
-    <ul class="card-statistics">
-      <li>Total Posts: 20</li>
-      <li>Total vacancy: 50</li>
-      <li>Total Applicants: 15</li>
-    </ul>
-  </div>
+// Define the job types you want to sum up
+$jobTypes = array("MARKETING", "TECHNOLOGY", "IT", "FOOD", "CUSTOMER SERVICE");
 
-  <div class="vacancy-card">
-    <div class="card-heading">Travel</div>
-    <ul class="card-statistics">
-      <li>Total Posts: 20</li>
-      <li>Total vacancy: 50</li>
-      <li>Total Applicants: 10</li>
-    </ul>
-  </div>
+// Initialize variables to store the sum of vacancies and total posts
+$totalVacancy = 0;
+$totalPosts = 0;
+
+// Loop through each job type
+foreach ($jobTypes as $type) {
+    // Query to fetch data for the specific job type
+    $sql = "SELECT SUM(vacancy) AS total_vacancy, COUNT(*) AS total_posts FROM jobs WHERE job_type = '$type'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        // Add the sum of vacancies and total posts for the current job type to the overall totals
+        $totalVacancy += $row["total_vacancy"];
+        $totalPosts += $row["total_posts"];
+        echo '<div class="vacancy-card">';
+        echo '<div class="card-heading">' . $type . '</div>';
+        echo '<ul class="card-statistics">';
+        echo '<li>Total Posts: ' . $row["total_posts"] . '</li>';
+        if ($row["total_vacancy"]){
+        echo '<li>Total vacancy: ' . $row["total_vacancy"] . '</li>';}
+        else{
+          echo '<li>Total vacancy: 0</li>';
+        }
+        // You might need to query the total applicants from another table or calculate it differently
+        echo '</ul>';
+        echo '</div>';
+    } else {
+        // If no data found for the current job type, display zero
+        echo '<div class="vacancy-card">';
+        echo '<div class="card-heading">' . $type . '</div>';
+        echo '<ul class="card-statistics">';
+        echo '<li>Total Posts: 0</li>';
+        echo '<li>Total vacancy: 0</li>';
+        echo '</ul>';
+        echo '</div>';
+    }
+}
+
+
+
+$conn->close();
+?>
+
+
+
   <a href="explore.php" style="text-decoration: none;color: white;">
     <div class="vacancy-card" style="background-color: lightgreen; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);">
       <div class="card-heading">EXPLORE MORE</div>
@@ -90,34 +153,71 @@ if (@$_SESSION['type']=='business') {
  <div class="vacancies-title" style="margin-left: 2%;color: rgb(0, 0, 0);font-size: xx-large;">Site Statistics</div>
  <div class="vacancies-container" style="display: flex;">
  
-   <div class="vacancy-card">
-     <div class="card-heading">USERS</div>
-     <ul class="card-statistics">
-       <h1>50</h1>
-     </ul>
-   </div>
- 
-   <div class="vacancy-card">
-     <div class="card-heading">FREELANCERS</div>
-     <ul class="card-statistics">
-       <h1>20</h1>
-     </ul>
-   </div>
- 
-   <div class="vacancy-card">
-     <div class="card-heading">JOB POSTS</div>
-     <ul class="card-statistics">
-       <h1>15</h1>
-     </ul>
-   </div>
- 
-   <div class="vacancy-card">
-     <div class="card-heading">NEEDS</div>
-     <ul class="card-statistics">
-      <h1>3</h1>
-     </ul>
-   </div>
- </div>
+ <?php
+// Establishing a connection to the MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "fyproject"; // Assuming your database name is fyproject
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Function to count records in a table
+function countRecords($conn, $tableName) {
+    $sql = "SELECT COUNT(*) AS count FROM $tableName";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row["count"];
+    } else {
+        return 0;
+    }
+}
+
+// Fetch counts for each table
+$usersCount = countRecords($conn, "users");
+$businessCount = countRecords($conn, "business");
+$jobsCount = countRecords($conn, "jobs");
+$needsCount = countRecords($conn, "needs");
+
+// Display counts in the specified format
+echo '<div class="vacancy-card">';
+echo '<div class="card-heading">FREELANCERS</div>';
+echo '<ul class="card-statistics">';
+echo '<h1>' . $usersCount . '</h1>';
+echo '</ul>';
+echo '</div>';
+
+echo '<div class="vacancy-card">';
+echo '<div class="card-heading">COMPANIES</div>';
+echo '<ul class="card-statistics">';
+echo '<h1>' . $businessCount . '</h1>';
+echo '</ul>';
+echo '</div>';
+
+echo '<div class="vacancy-card">';
+echo '<div class="card-heading">JOB POSTS</div>';
+echo '<ul class="card-statistics">';
+echo '<h1>' . $jobsCount . '</h1>';
+echo '</ul>';
+echo '</div>';
+
+echo '<div class="vacancy-card">';
+echo '<div class="card-heading">NEEDS</div>';
+echo '<ul class="card-statistics">';
+echo '<h1>' . $needsCount . '</h1>';
+echo '</ul>';
+echo '</div>';
+
+$conn->close();
+?>
+</div>
 <br><br><br>
 
 
@@ -136,6 +236,53 @@ if (@$_SESSION['type']=='business') {
       Ready to swap, learn, and grow? Start your journey with Skill Dealers today!
         </div>
 </div><br><br><br>
+<div style="display: flex; background-color: white; padding-top: 50px;">
+  
+  <div style="width: 60%;padding:10px;padding-top: 100px;">
+    <h2>Look at Our Analysis, Make Good Decition</h2>
+    <p style="font-size: medium;">
+      Our platform offers insights derived from comprehensive analyses of posts and members. Are you ready to embark on a journey of discovery and empowerment? Whether you're eager to showcase your expertise or thirsty for knowledge, our vibrant community of skill enthusiasts has something for everyone.
+      Dive into a world of endless possibilities as you explore a diverse array of talents, from coding to cooking, gardening to graphic design, and everything in between. With Skill Dealers, the sky's the limit!
+      Join us and unlock the secrets to success in an environment dedicated to fostering growth and collaboration. Our platform empowers you to thrive as you connect with like-minded individuals and exchange valuable skills.
+      Best of all, it won't cost you a dime. At Skill Dealers, you "pay" with your time, investing in yourself and others as you swap skills and unlock new horizons.
+      Ready to swap, learn, and grow? Start your journey with Skill Dealers today!  <br>
+   
+    <div class="vacancy-card" style="background-color: lightgreen; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);height:6p0px">
+    <a href="position.php" style="text-decoration: none;color: white;">
+      <div class="card-heading">EXPLORE MORE</div>
+      <img src="./images/white-arrow-icon-5.png"  style="width: 90px;margin-left: 60%;margin-top:-50px;" alt=""></a>
+    
+    </div>
+  
+    </p>
+  </div>
+  <div style="width: 40%;height: 500px;">
+    <img id="about" src="./images/g.jpg" style="width:500px;margin: 20px;margin-top: 80px;">
+  </div><br>
+  
+</div>
+</a><br><br><br>
+<div style=" background-color: white; padding-top: 50px;">
+<h1 style="margin-left:460px">Customer Testimonials</h1>
+        <div class="testimonialc" >
+            
+            <div class="testimonial">
+                <img src="./images/depositphotos_65699901-stock-photo-black-man-keeping-arms-crossed.webp" alt="Avatar">
+                <p>"Great service! I'm very satisfied with the results."</p>
+                <p class="author">- John Doe</p>
+            </div>
+            <div class="testimonial">
+                <img src="./images/1000_F_367709147_W4Q2pRjMcz7jUkuH4e1BIhmtCDceu3FH.jpg" alt="Avatar">
+                <p>"Highly recommended. Professional and efficient."</p>
+                <p class="author">- Jane Smith</p>
+            </div>
+            <div class="testimonial">
+                <img src="./images/taha-abdel-dayem.jpg" alt="Avatar">
+                <p>"Amazing experience. Will definitely use again!"</p>
+                <p class="author">- Alice Johnson</p>
+            </div>
+        </div>
+    </div>
 <!-- jobs -->
 <h1 style="margin-left: 40%;color: white;">JOBLISTINGS</h1>
 <div class="vacancies-container" style="display: flex;"></div>
@@ -207,68 +354,13 @@ $conn->close();
 
 
 
-  <a href="explore.php"><button style="width: 65%;margin-left: 20%;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);height: 50px;margin-top: 20px;background-color: rgb(28, 133, 28);border: 0;font-size: x-large;color: white;font-weight: bolder;">SHOW MORE</button></a>
+  <a href="explore.php" ><button style="width: 65%;margin-left: 20%;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);height: 50px;margin-top: 20px;background-color: rgb(28, 133, 28);border: 0;font-size: x-large;color: white;font-weight: bolder;">SHOW MORE</button></a>
   <br><br></div>
+  
   </div>
 </div></div>
 
-<footer style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; font-family: Arial, sans-serif;">
-  <!-- Footer container with flex layout -->
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-      
-      <!-- Company Information -->
-      <div style="flex: 1; min-width: 200px; padding: 10px;">
-          <h3 style="margin: 0; font-size: 24px;">Skill Dealers</h3>
-          <p style="margin: 10px 0; font-size: 14px;">
-              Empowering talent and connecting opportunities. Join our community and start swapping skills today!
-          </p>
-      </div>
-      
-      <!-- Navigation Links -->
-      <div style="flex: 1; min-width: 150px; padding: 10px;">
-          <h4 style="margin: 0; font-size: 18px;">Quick Links</h4>
-          <ul style="list-style: none; padding: 0;">
-              <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
-              <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
-              <li><a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
-              <li><a href="terms.html" style="color: white; text-decoration: none;">Terms of Service</a></li>
-          </ul>
-      </div>
-      
-      <!-- Social Media Links -->
-      <div style="flex: 1; min-width: 150px; padding: 10px;">
-          <h4 style="margin: 0; font-size: 18px;">Follow Us</h4>
-          <div style="display: flex; gap: 10px; margin-top: 10px;">
-              <a href="https://www.facebook.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://www.twitter.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.linkedin.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://www.instagram.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-instagram"></i>
-              </a>
-          </div>
-      </div>
-      
-      <!-- Contact Information -->
-      <div style="flex: 1; min-width: 200px; padding: 10px;">
-          <h4 style="margin: 0; font-size: 18px;">Contact Us</h4>
-          <p style="margin: 10px 0; font-size: 14px;">Email: support@skilldealers.com</p>
-          <p style="margin: 10px 0; font-size: 14px;">Phone: (123) 456-7890</p>
-      </div>
-  </div>
-  
-  <!-- Copyright and Legal Information -->
-  <div style="text-align: center; padding-top: 20px; font-size: 12px; color: #ccc;">
-      © 2024 Skill Dealers. All rights reserved. 
-      <a href="privacy.html" style="color: #ccc; text-decoration: none;">Privacy Policy</a> | 
-      <a href="terms.html" style="color: #ccc; text-decoration: none;">Terms of Service</a>
-  </div>
-</footer>
+<?php include './php/footer.php'; ?>
 </div>
 </body>
 </html>

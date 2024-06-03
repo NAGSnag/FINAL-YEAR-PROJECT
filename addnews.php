@@ -60,6 +60,9 @@
     </style>
 </head>
 <body>
+<div style="margin-top:-650px;margin-left:-500px;padding-right:300px">
+<?php include './php/backbutton.php'; ?>
+</div>
     <div class="form-container">
         <h1>Add News</h1>
         <form  method="post" enctype="multipart/form-data">
@@ -123,6 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-    </div>
+    </div></div>
+
 </body>
 </html>

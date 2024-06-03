@@ -51,15 +51,14 @@
 
 
 
-    <div style="width: 90%;margin-left: 0%;background-color: white;">
+    <div style="width: 95%;margin-left: 0%;background-color: white;">
     <div id="myNavbar" style="width: 90%;margin-left: 5%;">
         <div class="container">
     <ul>
     <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-    <li class="right-nav"><a href="who.html" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
-    <li class="right-nav"><a href="explore.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Explore</span></a>/</li>
-    <li class="right-nav"><a href="homepage.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Home</span></a>/</li> 
-    </ul>
+      <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
+      <li class="right-nav"><a href="postaneed.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
+      <li class="right-nav"><a href="companey_updates.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">NEWS</span></a>/</li> 
         </div>
     </div></div>
     <?php echo "<img src='data:image/jpeg;base64," . base64_encode($need['banner']) . "' alt='Banner' style='width: 90%;margin-left: 5%;margin-top: 67px;height: 600px;'>"; ?>
@@ -179,6 +178,6 @@
 </div>
 
 <?php $conn->close(); ?>
-    
+<?php include './php/footer.php'; ?> 
 </body>
 </html>

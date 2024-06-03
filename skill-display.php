@@ -92,23 +92,27 @@ if (isset($_GET['id'])) {
                </div>
             </div>
             <!-- right -->
-            <div style="width: 30%;margin-top: 5%;">
+            <div style="width: 33%;margin-top: 5%;">
                 <div style="background-color: rgba(0, 255, 115, 0.099);margin:5px;padding: 10px;">
                 <h1 style="color: black;text-align: start;margin-left: 8%;">Summary</h1>
-                <ul style="margin-top: 40px;">
+                <ul style="margin-top: 40px;font-size:5px">
                     <li class="li">USERNAME: <?php echo htmlspecialchars($skill['name']); ?></li>
                     <li class="li">EMAIL: <?php echo htmlspecialchars($skill['email']); ?></li>
                     <li class="li">Contact: <?php echo htmlspecialchars($skill['contact']); ?></li>
                     <li class="li">Skills: <?php echo htmlspecialchars($skill['skills']); ?></li>
+                    <li class="li">Deal: <?php echo htmlspecialchars($skill['deal']); ?> USD</li>
                     </ul>
+                    <br><br><br>
                     <?php
-                        // Assuming $skill contains the data with the 'email' field
-                        echo '<a href="payment.php?email=' . $skill['email']. '">
-                                <button style="width: 40%; background-color: lightgreen; border: 0px; margin-left: 30%; height: 30px;">
-                                    PAYMENT
-                                </button>
-                            </a>';
-                        ?>                  
+                    $amt = $skill['deal'] * 100; // Assuming $skill contains the data with the 'deal' field
+                    $email = $_GET['email']; // Assuming $skill contains the data with the 'email' field
+                    echo '<a href="paymenttest.php?price=' . $amt . '&email=' . $email . '">
+                            <button style="width: 40%; background-color: lightgreen; border: 0px; margin-left: 30%; height: 30px;">
+                                PAYMENT
+                            </button>
+                        </a>';
+                    ?>
+             
             </div>
        
             </div>

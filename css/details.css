@@ -90,7 +90,7 @@ textarea {
 }
 .li{
     margin-top: 30px;
-    font-size: large; 
+    font-size: medium; 
     font-weight: bold;
 }
 .li::before{ 

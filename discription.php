@@ -11,6 +11,10 @@
             font-size: large;
 
         }
+        li{
+            font-size: medium;
+        }
+
     </style>
 </head>
 <body style="background: linear-gradient(to right, lightblue, lightgreen);">
@@ -65,12 +69,12 @@ if (isset($_GET['id'])) {
 ?>
 
 
-    <div style="width: 90%;margin-left: 0%;background-color: white;">
-    <div id="myNavbar" style="width: 90%;margin-left: 5%;">
+<div style="width: 98%;background-color: white;margin-left: 1%;">
+    <div id="myNavbar" style="width: 92%;margin-left: 3%;">
         <div class="container">
     <ul>
     <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-    <li class="right-nav"><a href="who.html" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
+    <li class="right-nav"><a href="who.php" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
     <li class="right-nav"><a href="explore.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Explore</span></a>/</li>
     <li class="right-nav"><a href="homepage.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Home</span></a>/</li> 
     </ul>
@@ -110,13 +114,13 @@ echo "<img src='data:image/jpeg;base64," . base64_encode($job['banner']) . "' al
                     <div style="padding: 30px;">
                         <h1 style="text-align: start;margin-top: 100px;color: black;">APPLY FOR JOB</h1>
                         <div>
-                            <input type="text" style="width:450px" name='name' id='name' placeholder="YOUR NAME">
-                            <input type="text" style="width:450px" name='email' id='email' placeholder="EMAIL">
+                            <input type="text" style="width:415px" name='name' id='name' placeholder="YOUR NAME">
+                            <input type="text" style="width:415px" name='email' id='email' placeholder="EMAIL">
                         </div>
                         <div style="margin-top: 20px;">
-                            <input type="text" style="width:450px"  name='link' id='link' placeholder="LINKEDIN LINK">
+                            <input type="text" style="width:415px"  name='link' id='link' placeholder="LINKEDIN LINK">
 
-                            <select name="exp" id="exp"  style="width: 470px;height: 42px;border-radius: 6px;text-align: center;">
+                            <select name="exp" id="exp"  style="width: 415px;height: 42px;border-radius: 6px;text-align: center;">
                                 <option value="0">Fresher</option>
                                 <option value="1"> less than 1 year</option>
                                 <option value="2"> less than 3 year</option>
@@ -130,7 +134,7 @@ echo "<img src='data:image/jpeg;base64," . base64_encode($job['banner']) . "' al
                             <input type="file" id="resume" name='resume' style="width:450px" >
                         </div>
                         <div style="margin-top: 20px;">
-                                <textarea name="bio" id="bio" cols="30" style="width: 930px;" rows="10"></textarea>
+                                <textarea name="bio" id="bio" cols="30" style="width: 850px;" rows="10"></textarea>
                         </div>
                         <input type="submit" value="APPLY NOW" name="" id="" style="width: 95%;  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);height: 50px;margin-top: 20px;background-color: rgb(28, 133, 28);border: 0;font-size: x-large;color: white;font-weight: bolder;">
                     </div>

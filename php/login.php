@@ -25,7 +25,7 @@ $adminPasswordHash = password_hash("ans030403", PASSWORD_DEFAULT); // Hash the a
 
 if ($email === $adminEmail && password_verify($password, $adminPasswordHash)) {
     // Redirect to admin dashboard if credentials match
-    header("Location: ../adminpage.html");
+    header("Location: ../adminpage.php");
     exit;
 }
 
@@ -47,7 +47,7 @@ function getUserNameIfValid($conn, $email, $password, $table) {
         $stmt->fetch();
         
         if (password_verify($password, $stored_password)) {
-            $_SESSION['user']=$userName;
+            $_SESSION['user']=$name;
             $_SESSION['email']=$email;
             return $name;
         }
@@ -75,5 +75,6 @@ if ($businessName) {
 
 // If no match, redirect back to login with a failure message
 header("Location: ../login.html?error=invalid_credentials");
+
 exit;
 ?>

@@ -18,7 +18,7 @@ body{
     margin-left: 3%;
     display: flex;
     flex-wrap: wrap;
-    
+    text-align: end;
 
 }
 .cards-container {
@@ -32,7 +32,7 @@ body{
 .card {
     width: 400px;
     height: 400px;
-    margin: 10px;
+    margin: 30px;
     box-shadow: 0 0 4px #d4ecff;
     border-radius: 4px;
     cursor: pointer;
