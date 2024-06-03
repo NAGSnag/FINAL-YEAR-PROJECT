@@ -98,6 +98,7 @@ if (isset($_GET['id'])) {
                 <ul style="margin-top: 40px;font-size:5px">
                     <li class="li">USERNAME: <?php echo htmlspecialchars($skill['name']); ?></li>
                     <li class="li">EMAIL: <?php echo htmlspecialchars($skill['email']); ?></li>
+                    <li class="li">Id: <?php echo htmlspecialchars($skill['id']); ?></li>
                     <li class="li">Contact: <?php echo htmlspecialchars($skill['contact']); ?></li>
                     <li class="li">Skills: <?php echo htmlspecialchars($skill['skills']); ?></li>
                     <li class="li">Deal: <?php echo htmlspecialchars($skill['deal']); ?> USD</li>

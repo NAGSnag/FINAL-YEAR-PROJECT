@@ -146,6 +146,7 @@
                 <ul style="margin-top: 40px;">
                     <li class="li">USERNAME:<?php  echo htmlspecialchars($need['username'])?><li>
                     <li class="li">EMAIL:<?php  echo htmlspecialchars($need['email'])?><li>
+                    <li class="li">Id:<?php  echo htmlspecialchars($need['id'])?><li>
                     <li class="li">DEAL:<?php  echo htmlspecialchars($need['deal_amount'])?></li>
                     <li class="li">Location:<?php  echo htmlspecialchars($need['location'])?></li>
                     <li class="li">Dead-Line:<?php  echo htmlspecialchars($need['deadline'])?></li>

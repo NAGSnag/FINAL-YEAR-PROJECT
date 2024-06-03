@@ -234,6 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li class="li">Experience: <?php  echo htmlspecialchars($job['experience']) . " years</p>"; ?></li>
                     <li class="li">Salary: <?php echo htmlspecialchars($job['salary']) ; ?> </li>
                     <li class="li">Location: <?php echo htmlspecialchars($job['location']) ; ?></li>
+                    <li class="li">Id: <?php echo htmlspecialchars($job['job_id']) ; ?></li>
                     <li class="li">Deadline: <?php echo htmlspecialchars($job['application_deadline']) ; ?></li>
                 </ul>
                     

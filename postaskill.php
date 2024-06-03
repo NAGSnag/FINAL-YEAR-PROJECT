@@ -203,7 +203,7 @@
             <label for="resume">Attach Resume:</label>
             <input type="file" id="resume" name="resume" required><br>
             <label for="amt">Enter Deal Amt in USD:</label>
-            <input type="number" id="amt" name="amt" required> <br><br>
+            <input type="text" id="amt" name="amt" required> <br><br>
 
 
             <input type="submit" value="Submit">

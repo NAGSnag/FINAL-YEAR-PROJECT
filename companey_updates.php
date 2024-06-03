@@ -60,6 +60,7 @@ From exciting milestones to important initiatives, our news page is your go-to d
                                 <h6 class="news-source">' . $row["source"] . '</h6>
                                 <p class="news-desc">' . $row["description"] . '</p>
                                 <p class="company-name">' . $row["company_name"] . '</p>
+                                <p >Id:' . $row["id"] . '</p>
                             </div>
                           </div>';
                 }
@@ -89,6 +90,7 @@ From exciting milestones to important initiatives, our news page is your go-to d
                                 <h6 class="news-source">' . $row["source"] . '</h6>
                                 <p class="news-desc">' . $row["description"] . '</p>
                                 <p class="company-name">' . $row["company_name"] . '</p>
+                                <p style="/font-size:small"/>Id:' . $row["id"] . '</p>
                             </div>
                           </div>';
                 }

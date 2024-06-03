@@ -75,17 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $linkedin_link = $_POST['links2'];
     $exp = $_POST['exp'];
     $job_type = $_POST['type'];
-    $pay_pass=$_POST['pay_pass'];
+    $deal = $_POST['amt'];
 
     // Handle file uploads
     $profile_image = null;
     if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
         $profile_image = file_get_contents($_FILES['profile_image']['tmp_name']);
     }
-    $qr = null;
-    if (isset($_FILES['qr']) && $_FILES['qr']['error'] === UPLOAD_ERR_OK) {
-        $profile_image = file_get_contents($_FILES['qr']['tmp_name']);
-    }
+
 
     $banner = null;
     if (isset($_FILES['banner']) && $_FILES['banner']['error'] === UPLOAD_ERR_OK) {
@@ -99,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Insert into the skills table
 $stmt = $conn->prepare("
-INSERT INTO skills (name, email, contact, skills, title, description, skill_explanation, github_link, linkedin_link, profile_image, resume, exp, banner, qr, pay_pass) 
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)
+INSERT INTO skills (name, email, contact, skills, title, description, skill_explanation, github_link, linkedin_link, profile_image, resume, exp, banner, deal) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ");
 
 if (!$stmt) {
@@ -108,7 +105,7 @@ if (!$stmt) {
 }
 
 $stmt->bind_param(
-    "sssssssssssssss", 
+    "ssssssssssssss", 
     $name, 
     $email, 
     $contact, 
@@ -122,8 +119,7 @@ $stmt->bind_param(
     $resume, 
     $exp, 
     $banner,
-    $qr,
-    $pay_pass
+    $deal
 );
 
 if ($stmt->execute()) {
