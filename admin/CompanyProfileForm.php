@@ -51,11 +51,10 @@
 <body>
     <div class="section">
         <h3 style = "text-align:center">Company Profile Data</h3>
-        <form action="update.php" method="post">
-            <div class="form-group">
-                <label for="Email">Search Email:</label>
-                <input type="email" id="Email" name="Email" class="form-input" required>
-                <button class="button">Search</button>
+        <form action="CompanyProfileFormUpdate.php" method="post">
+             <div class="form-group">
+                <input type="text" id="id" name="id" placeholder="id" required class="form-input">
+            
             </div>
             <div class="form-group">
                 <label for="input-file">Upload Company Logo</label>

@@ -139,7 +139,7 @@
                     <label for="star1" onclick="setRating(5)">★</label>
                 </div>
                 <input type="hidden" name="email" value="<?php echo htmlspecialchars($_GET['email']); ?>">
-                <button type="submit">Submit Rating</button>
+                <button type="submit"  onclick="redirectToHome()">Submit Rating</button>
             </form>
             <button onclick="redirectToHome()">Go to Homepage</button>
         </div>
@@ -156,40 +156,55 @@
             });
         }
     </script>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['rating']) && isset($_GET['email'])) {
+    // Database connection details
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "fyproject";
 
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['rating']) && isset($_GET['email'])) {
-        // Database connection details
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "fyproject";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+    // Validate and sanitize input
+    $rating = filter_var($_GET['rating'], FILTER_VALIDATE_INT);
+    $email = filter_var($_GET['email'], FILTER_SANITIZE_EMAIL);
 
-        $rating = intval($_GET['rating']);
-        $email = $conn->real_escape_string($_GET['email']);
-
+    if ($rating === false || !$email) {
+        echo "<script>alert('Invalid input');</script>";
+    } else {
         // Update the rating and no_ppl_voted in the database
         $stmt = $conn->prepare("UPDATE explore SET rating = rating + ?, no_ppl_voted = no_ppl_voted + 1 WHERE email = ?");
+        
+        if ($stmt) {
+            $stmt->bind_param("is", $rating, $email);
 
-        $stmt->bind_param("is", $rating, $email);
+            if ($stmt->execute()) {
+                echo "<script>
+                    alert('Rating updated successfully');
+                    window.location.href = 'http://localhost/FINAL%20YEAR%20PROJECT/FINAL-YEAR-PROJECT/homepage.php';
+                </script>";
+                exit(); // Ensure the script stops after redirection
+            } else {
+                echo "<script>alert('Error updating rating: " . $stmt->error . "');</script>";
+            }
 
-        if ($stmt->execute()) {
-            echo "<script>alert('Rating updated successfully');</script>";
+            $stmt->close();
         } else {
-            echo "<script>alert('Error updating rating: " . $conn->error . "');</script>";
+            echo "<script>alert('Error preparing statement: " . $conn->error . "');</script>";
         }
-
-        $stmt->close();
-        $conn->close();
     }
-    ?>
+
+    $conn->close();
+}
+?>
+
+    
 </body>
 </html>

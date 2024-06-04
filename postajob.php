@@ -86,6 +86,8 @@
     </style>
 </head>
 <body>
+    
+<?php include './php/backbutton.php'; ?><br>
     <div class="container">
         <h1>Post a Job</h1>
         <form id="jobForm" method="post" action="./php/jobs.php" enctype="multipart/form-data">

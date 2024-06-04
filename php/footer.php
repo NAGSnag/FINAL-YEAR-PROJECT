@@ -14,31 +14,33 @@
       <div style="flex: 1; min-width: 150px; padding: 10px;">
           <h4 style="margin: 0; font-size: 18px;">Quick Links</h4>
           <ul style="list-style: none; padding: 0;">
-              <li><a href="about.html" style="color: white; text-decoration: none;">About Us</a></li>
-              <li><a href="contact.html" style="color: white; text-decoration: none;">Contact Us</a></li>
-              <li><a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a></li>
-              <li><a href="terms.html" style="color: white; text-decoration: none;">Terms of Service</a></li>
+              <li><a href="homepage.php" style="color: white; text-decoration: none;">About Us</a></li>
+              <li><a href="mailto:nagasheshu.akula@gmail.com" style="color: white; text-decoration: none;">Contact Us</a></li>
+              <li><a href="position.php" style="color: white; text-decoration: none;">Analysis</a></li>
+              <li><a href="companey_updates.php" style="color: white; text-decoration: none;">News</a></li>
           </ul>
       </div>
       
       <!-- Social Media Links -->
       <div style="flex: 1; min-width: 150px; padding: 10px;">
-          <h4 style="margin: 0; font-size: 18px;">Follow Us</h4>
-          <div style="display: flex; gap: 10px; margin-top: 10px;">
-              <a href="https://www.facebook.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://www.twitter.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.linkedin.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://www.instagram.com" target="_blank" style="color: white; text-decoration: none;">
-                  <i class="fab fa-instagram"></i>
-              </a>
-          </div>
-      </div>
+      <h4>Follow us</h4>
+    <div style="display: flex; gap: 10px; margin-top: 10px; margin-left: 90px;">
+
+        <a href="https://www.facebook.com" target="_blank" style="color: white; text-decoration: none;">
+            <img src="./images/536448.png" alt="Facebook" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.twitter.com" target="_blank" style="color: white; text-decoration: none;">
+            <img src="images/free-twitter-1865886-1581902.png" alt="Twitter" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" style="color: white; text-decoration: none;">
+            <img src="images/1384015.png" alt="LinkedIn" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" style="color: white; text-decoration: none;">
+            <img src="images/2111463.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+    </div>
+</div>
+
       
       <!-- Feedback Button -->
       <div style="flex: 1; min-width: 150px; padding: 10px;">

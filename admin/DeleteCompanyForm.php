@@ -45,7 +45,7 @@
 <body>
     <div class="action">
         <h3 style = "text-align:center">Delete Company</h3>
-        <form action="php/delete_company.php" method="post">
+        <form action="delete_company.php" method="post">
             <label for="company_id">Company ID:</label>
             <input type="text" id="company_id" name="company_id" placeholder="Enter Company ID" required>
             <input type="submit" value="Delete Company">

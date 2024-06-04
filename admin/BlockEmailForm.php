@@ -45,7 +45,7 @@
 <body>
     <div class="action">
         <h3 style = "text-align:center">Block Email</h3>
-        <form action="php/block_email.php" method="post">
+        <form action="block_email.php" method="post">
             <label for="email">Email Address:</label>
             <input type="text" id="email" name="email" placeholder="Enter Email Address" required>
             <input type="submit" value="Block Email">

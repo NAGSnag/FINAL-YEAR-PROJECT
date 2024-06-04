@@ -45,7 +45,7 @@
 <body>
     <div class="action">
         <h3 style = "text-align:center">Delete User</h3>
-        <form action="php/delete_user.php" method="post">
+        <form action="delete_user.php" method="post">
             <label for="user_id">User ID:</label>
             <input type="text" id="user_id" name="user_id" placeholder="Enter User ID" required>
             <input type="submit" value="Delete User">

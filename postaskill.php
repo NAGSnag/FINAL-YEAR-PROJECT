@@ -139,16 +139,16 @@
 </head>
 
 <body>
-<div id="myNavbar" style="width: 98%;margin-left:1%">
-        <div class="container">
-    <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.php "><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
-      <li class="right-nav"><a href="companey_updates.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">NEWS</span></a>/</li> 
-    </ul>
-        </div>
-    </div><br><br><br><br><br>
+    <!-- <div id="myNavbar" style="width: 98%;margin-left:1%">
+            <div class="container">
+        <ul>
+        <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
+        <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
+        <li class="right-nav"><a href="postaneed.php "><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
+        <li class="right-nav"><a href="companey_updates.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">NEWS</span></a>/</li> 
+        </ul>
+            </div>
+        </div><br><br><br><br><br> -->
     <?php include './php/backbutton.php'; ?><br>
     <div id="form">
         <form action="./php/skill.php" method="post" enctype="multipart/form-data" id="skill">

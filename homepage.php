@@ -6,6 +6,114 @@
     <link rel="stylesheet" href="./css/homepage.css">
     <title>Document</title>
     <style> 
+
+.main-nav {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.main-nav .title {
+    font-size: 30px;
+    margin: 0;
+}
+
+.content {
+    padding: 100px 20px 20px; /* Adjusted padding for fixed navbar */
+    width: 100%;
+    max-width: 1370px;
+    z-index: -1;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    color: #fff; /* White text for contrast */
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    margin: 10px;
+    max-width: 400px;
+    flex: 1 1 calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.news-source {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.news-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.company-name {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
     .testimonialc {
             display: flex;
             padding-bottom: 20px;
@@ -41,7 +149,7 @@
         }</style>
 
 </head>
-<body>
+<body style=' background-color: rgb(230, 244, 243);'>
   <?php session_start();
   ?>
 <div class="bodytab">
@@ -50,7 +158,7 @@
 <ul>
   <!-- <li style="float:left"><a href="#home"><img class="navlogo" src="images/logo4.png" alt=""></a></li> -->
   <li style="float:left;margin-top: -25px;"><a href="#home"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-  <li class="right-nav"><a href="who.php" style="background-color: green;padding-right:10px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">@<?php echo $_SESSION['user'];?></span></a></li> 
+  <li class="right-nav"><a href="who.php" style="background-color: green;padding-right:10px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium"><?php echo $_SESSION['user'] ?? "Login";?></span></a></li> 
   <li class="right-nav"><a href="#about"><span class="medium"></span>ABOUT</a></li>
   <li class="right-nav"><a href="#contact"><span class="medium">CONTACT</span></a></li>
   <?php
@@ -248,7 +356,7 @@ $conn->close();
       Ready to swap, learn, and grow? Start your journey with Skill Dealers today!  <br>
    
     <div class="vacancy-card" style="background-color: lightgreen; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.406);height:6p0px">
-    <a href="position.php" style="text-decoration: none;color: white;">
+    <a href="position.php" target="_blank" style="text-decoration: none;color: white;">
       <div class="card-heading">EXPLORE MORE</div>
       <img src="./images/white-arrow-icon-5.png"  style="width: 90px;margin-left: 60%;margin-top:-50px;" alt=""></a>
     
@@ -260,7 +368,59 @@ $conn->close();
     <img id="about" src="./images/g.jpg" style="width:500px;margin: 20px;margin-top: 80px;">
   </div><br>
   
+
+
+
+
+
+
+
+
+
 </div>
+<br><br><br>
+
+<div class="content" style="width: 97%;background-color:white;color:black;font-size:medium;font-weight;">
+<h2>Recent Company Updates</h2>
+        <div class="cards">
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $database = "fyproject";
+
+            $conn = new mysqli($servername, $username, $password, $database);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch most recent news
+            $sql = "SELECT * FROM news_table ORDER BY created_at DESC LIMIT 3";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo '<div class="card">
+                            <div class="card-header">
+                                <img decoding="async" src="data:image/jpeg;base64,' . base64_encode($row["image"]) . '" alt="news-image">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="news-title">' . $row["title"] . '</h3>
+                                <h6 class="news-source">' . $row["source"] . '</h6>
+                                <p class="news-desc">' . $row["description"] . '</p>
+                                <p class="company-name">' . $row["company_name"] . '</p>
+                                <p >Id:' . $row["id"] . '</p>
+                            </div>
+                          </div>';
+                }
+            } else {
+                echo "<p>No recent news available.</p>";
+            }
+            ?>
+        </div>
+    </div>
+
 </a><br><br><br>
 <div style=" background-color: white; padding-top: 50px;">
 <h1 style="margin-left:460px">Customer Testimonials</h1>

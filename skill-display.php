@@ -52,9 +52,9 @@ if (isset($_GET['id'])) {
         <div class="container">
     <ul>
     <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-    <li class="right-nav"><a href="who.html" style="background-color: green;padding-right: 60px;color: white;padding-top: 30px;padding-bottom: 10px;"><span class="medium">LOGIN</span></a></li> 
-    <li class="right-nav"><a href="explore.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Explore</span></a>/</li>
-    <li class="right-nav"><a href="homepage.php"><span style="border: 3px solid white;padding: 10px;border-radius: 20px;" class="medium">Home</span></a>/</li> 
+      <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
+      <li class="right-nav"><a href="postaneed.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
+      <li class="right-nav"><a href="explore.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">EXPLORE</span></a>/</li> 
     </ul>
         </div>
     </div></div>
@@ -94,11 +94,12 @@ if (isset($_GET['id'])) {
             <!-- right -->
             <div style="width: 33%;margin-top: 5%;">
                 <div style="background-color: rgba(0, 255, 115, 0.099);margin:5px;padding: 10px;">
-                <h1 style="color: black;text-align: start;margin-left: 8%;">Skill Summary</h1>
+                <h1 style="color: black;text-align: start;margin-left: 8%;">
+                Skill Summary</h1>
                 <ul style="margin-top: 40px;font-size:5px">
+                <li class="li">Id: <?php echo htmlspecialchars($skill['id']); ?></li>
                     <li class="li">USERNAME: <?php echo htmlspecialchars($skill['name']); ?></li>
                     <li class="li">EMAIL: <?php echo htmlspecialchars($skill['email']); ?></li>
-                    <li class="li">Id: <?php echo htmlspecialchars($skill['id']); ?></li>
                     <li class="li">Contact: <?php echo htmlspecialchars($skill['contact']); ?></li>
                     <li class="li">Skills: <?php echo htmlspecialchars($skill['skills']); ?></li>
                     <li class="li">Deal: <?php echo htmlspecialchars($skill['deal']); ?> USD</li>
@@ -132,7 +133,7 @@ if (isset($_GET['id'])) {
                     
                     echo "<object data='data:application/pdf;base64,{$pdfData}' 
                             width='100%' 
-                            height='500' 
+                            height='1000' 
                             type='application/pdf' 
                             style='border: none;'>
                             This browser does not support PDFs. Please download the PDF to view it: 
@@ -153,6 +154,6 @@ if (isset($_GET['id'])) {
 </div>
 
 <?php $conn->close(); ?>
-    
+<?php include './php/footer.php'; ?>
 </body>
 </html>

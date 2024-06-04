@@ -144,9 +144,9 @@
                 <div style="height: 400px;background-color: rgba(0, 255, 115, 0.099);margin:5px;padding: 10px;">
                 <h1 style="color: black;text-align: start;margin-left: 8%;">Need Summary</h1>
                 <ul style="margin-top: 40px;">
+                    <li class="li">Id:<?php  echo htmlspecialchars($need['id'])?><li>
                     <li class="li">USERNAME:<?php  echo htmlspecialchars($need['username'])?><li>
                     <li class="li">EMAIL:<?php  echo htmlspecialchars($need['email'])?><li>
-                    <li class="li">Id:<?php  echo htmlspecialchars($need['id'])?><li>
                     <li class="li">DEAL:<?php  echo htmlspecialchars($need['deal_amount'])?></li>
                     <li class="li">Location:<?php  echo htmlspecialchars($need['location'])?></li>
                     <li class="li">Dead-Line:<?php  echo htmlspecialchars($need['deadline'])?></li>
@@ -163,11 +163,22 @@
               </a>'; 
         ?>            <div>
             <h1>DETAILED DISCRIPTION</h1>
-            <object class="pdf" 
-                    data="./images/sample-lean-and-cool-resume.pdf"
-                    width="800"
-                    height="500">
-            </object>
+            <?php
+                if (isset($need['resume']) && !empty($need['resume'])) {
+                    $pdfData = base64_encode($need['resume']);  // Encode the BLOB data into base64
+                    
+                    echo "<object data='data:application/pdf;base64,{$pdfData}' 
+                            width='100%' 
+                            height='1000' 
+                            type='application/pdf' 
+                            style='border: none;'>
+                            This browser does not support PDFs. Please download the PDF to view it: 
+                            <a href='data:application/pdf;base64,{$pdfData}' download='resume.pdf'>Download PDF</a>.
+                        </object>";
+                } else {
+                    echo "<p>No resume available.</p>";  // Handle case when there's no resume data
+                }
+                ?>
 
 
         </div>

@@ -39,7 +39,7 @@
 <body>
     <div class="action">
         <h3 style = "text-align:center">Delete Post</h3>
-        <form action="php/delete_post.php" method="post">
+        <form action="delete_post.php" method="post">
             <label for="post_id">Post ID:</label>
             <input type="text" id="post_id" name="post_id" placeholder="Enter Post ID">
             <input type="submit" value="Delete Post">
