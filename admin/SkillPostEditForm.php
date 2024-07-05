@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Post Edit Form</title>
+    <title>Admin Controlls</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,9 +53,9 @@
         <h3 style = "text-align:center">Skill Post Edit</h3>
         <form action="update.php" method="post">
             <div class="form-group">
-                <label for="id">Search ID:</label>
+                <label for="id">Email ID:</label>
                 <input type="text" id="id" name="id" class="form-input" required>
-                <button class="button">Search</button>
+           
             </div>
             <div class="form-group">
                 <label for="input-file">Upload Image</label>
@@ -73,11 +73,7 @@
                 <label for="description">Experience (years):</label>
                 <textarea name="description" rows="6" class="form-textarea" required></textarea>
             </div>
-            <div class="form-group">
-                <label for="links">Links:</label>
-                <input type="text" name="links" placeholder="GitHub Link" class="form-input">
-                <input type="text" name="links" placeholder="LinkedIn Link" class="form-input">
-            </div>
+
             <div class="form-group">
                 <label for="resume">Attach Resume:</label>
                 <input type="file" class="form-input">

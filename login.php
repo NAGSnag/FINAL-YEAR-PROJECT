@@ -84,9 +84,7 @@
     <br><br>
     <div style="margin-top:-700px;margin-left:-540px;padding-right:330px"><?php include"./php/backbutton.php" ;?></div>
     <div class="login-container">
- 
         <h1>Login</h1>
-        
         <form action="./php/login.php" method="post">
             <div class="form-group">
                 <label for="email">Email ID:</label>

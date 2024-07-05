@@ -111,7 +111,7 @@ if ($result_filtered === false) {
             displayCard($row);
         }
     } else {
-        echo "No results found<br>";
+        echo "<br>";
     }
 
     echo "_____________________________________________________________________________________________________________________________________________________________<br><br><br><br><br>";
@@ -130,7 +130,7 @@ if ($result_filtered === false) {
             displayCard($row);
         }
     } else {
-        echo "No results found.<br>";
+        echo "";
     }
 }
 

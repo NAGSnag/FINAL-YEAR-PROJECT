@@ -6,6 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/normal.css">
     <link rel="stylesheet" href="./css/explore.css">
+    <style>
+        
+        footer{
+        color: white;
+        text-align: center;
+        }
+    </style>
     <script>
         // Function to get the value of a specific query parameter
         function getQueryParameter(name) {
@@ -40,7 +47,6 @@
  <form methord="get">
     <div class="searchbar">
     <input type="text" id="title" name="keyword" placeholder="ENTER KEYWORD" style="width: 300px;height: 50px;border-radius: 6px;text-align: center;">
-
     <select name="type" id="type"  style="width: 300px;height: 50px;border-radius: 6px;text-align: center;">
                 <option value="IT">IT</option>
                 <option value="MARKETING">MARKETING</option>
@@ -57,41 +63,18 @@
         <option value="3"> less than 5 year</option>
         <option value="4"> less than 10 year</option>
         <option value="5"> more than 10 year</option>
-
     </select>
-
     <input type="radio" name="posttype" id="posttype" value='Job Post' class='button'>JOBS &nbsp;
     <input type="radio" name="posttype" id="posttype" value='need post' class='button'>NEEDS&nbsp;
     <input type="radio" name="posttype" id="posttype" value='Skill Post' class='button'>TALENTS&nbsp;
-
-
-        <!-- <button class="button">/button>
-        <button class="button">JOBS</button>
-        <button class="button">NEEDS</button>
-        <button class="button">TALENTS</button> -->
         <input type="submit" value="🔎" class="button" style='width: 60px;height: 50px;'><br><br>
-        
-
-
     </form>
-    
-
     </div>
     </div></div>
-
     <div class="content" style="background-color: rgb(255, 255, 255);margin-top: 20px; margin-left:3%;margin-top: 100px;margin-bottom: 50px ;">
     <?php include "./php/explorecontent.php"; ?>
-
-
-
-
- 
-
-
     </div>
-    <?php include './php/footer.php'; ?>
-
-    
+    <?php include './php/footer.php'; ?>   
 </div>
 </body>
 </html>

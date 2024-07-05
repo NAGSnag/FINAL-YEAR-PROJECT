@@ -4,106 +4,13 @@
     <meta charset="UTF-8">
     <title>Post a Need</title>
     <link rel="stylesheet" href="./css/explore.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 50%;
-            padding: 60px;
-            background-color: #fff;
-            border-radius: 10px;
-            margin-left:18%;
-            margin-top:-10%;
-            box-shadow:0.3px 2px 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: auto; /* Ensure content doesn't get cut off */
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"], input[type="email"], input[type="datetime-local"], textarea, input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            height: 100px;
-            resize: none;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4CAF50;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 14px;
-            color: white;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            margin-top:1400px;
-            margin-left:-82%;
-            position: relative;
-            width:1400px;
-            bottom: 0;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="./css/needpost.css">
 </head>
 <body>
-    <!-- <div id="myNavbar" style="width: 98%;margin-left:1%">
-        <div class="container">
-    <ul>
-      <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="padding-top: -10px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="postaskill.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.php "><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">POST A NEED</span></a>/</li> 
-      <li class="right-nav"><a href="companey_updates.php"><span style="border: 3px solid white;padding: 10px;font-size:medium;" class="medium">NEWS</span></a>/</li> 
-    </ul>
-        </div>
-    </div><br><br><br><br><br> -->
-
 <div style="margin-top:-1500px;">
 <?php include './php/backbutton.php'; ?><br>
 </div>
-    
-
-<div class="container">
+    <div class="container">
     <form id="need" method="post" action="./php/need.php" enctype="multipart/form-data">
 
         <label for="Username">Username:</label>
@@ -160,9 +67,5 @@
 </div></div>
     </div>
     <?php include './php/footer.php'; ?> 
-
 </body>
-
-
-
 </html>

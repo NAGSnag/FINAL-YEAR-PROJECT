@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Post Edit Form</title>
+    <title>Admin Controlls</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,9 +53,9 @@
         <h3 style = "text-align:center">Job Post Edit</h3>
         <form action="update.php" method="post">
             <div class="form-group">
-                <label for="id">Search ID:</label>
+                <label for="id">Email ID:</label>
                 <input type="text" id="id" name="id" class="form-input" required>
-                <button class="button">Search</button>
+            
             </div>
             <div class="form-group">
                 <label for="logo">Upload Banner:</label>

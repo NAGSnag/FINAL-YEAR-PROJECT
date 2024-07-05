@@ -7,39 +7,37 @@
     <link rel="stylesheet" href="./css/normal.css">
     <style>
         body {
-            background: linear-gradient(to right, #54a0ff, #acb6e5); /* Set background color */
-            font-family: Arial, sans-serif; /* Set font family */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            background: linear-gradient(to right, #54a0ff, #acb6e5); 
+            font-family: Arial, sans-serif;
+            margin: 0; 
+            padding: 0; 
         }
-
         .button {
-            background-color: #4CAF50; /* Green background color */
-            border: none; /* Remove border */
-            color: white; /* White text color */
-            padding: 15px 32px; /* Padding for button */
-            text-align: center; /* Center text */
-            text-decoration: none; /* Remove underline */
-            display: inline-block; /* Display as inline block */
-            font-size: 16px; /* Font size */
-            margin-top: 20px; /* Margin from top */
-            cursor: pointer; /* Cursor style */
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Smooth transition for background color */
+            background-color: #4CAF50;
+            border: none; 
+            color: white; 
+            padding: 15px 32px;
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block;
+            font-size: 16px; 
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
         .button:hover {
-            background-color: #45a049; /* Darker green color on hover */
+            background-color: #45a049; 
         }
     </style>
     <script>
-      // Function to get the value of a specific query parameter
+
       function getQueryParameter(name) {
           const params = new URLSearchParams(window.location.search);
           return params.get(name);
       }
 
-      // When the page loads, check for the 'username' query parameter and display an alert
       window.onload = function() {
           const username = getQueryParameter("error");
           if (username) {
@@ -76,8 +74,6 @@
         <a href="login.php"> <button class="button" style="margin-left: 35%;width:400px;height:100px"><h1>Login</h1></button></a> <br><br> 
         </div>
         </div>
-        
-      
       </div>
       <?php include './php/footer.php'; ?>
 </body>

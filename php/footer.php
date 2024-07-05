@@ -1,4 +1,4 @@
-<footer style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; font-family: Arial, sans-serif;">
+<footer style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; font-family: Arial, sans-serif;text-align: center;">
   <!-- Footer container with flex layout -->
   <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
       
@@ -27,13 +27,13 @@
     <div style="display: flex; gap: 10px; margin-top: 10px; margin-left: 90px;">
 
         <a href="https://www.facebook.com" target="_blank" style="color: white; text-decoration: none;">
-            <img src="./images/536448.png" alt="Facebook" style="width: 30px; height: 30px;">
+            <img src="./images/20673.png" alt="Facebook" style="width: 30px; height: 30px;">
         </a>
         <a href="https://www.twitter.com" target="_blank" style="color: white; text-decoration: none;">
             <img src="images/free-twitter-1865886-1581902.png" alt="Twitter" style="width: 30px; height: 30px;">
         </a>
         <a href="https://www.linkedin.com" target="_blank" style="color: white; text-decoration: none;">
-            <img src="images/1384015.png" alt="LinkedIn" style="width: 30px; height: 30px;">
+            <img src="images/link.png" alt="LinkedIn" style="width: 30px; height: 30px;">
         </a>
         <a href="https://www.instagram.com" target="_blank" style="color: white; text-decoration: none;">
             <img src="images/2111463.png" alt="Instagram" style="width: 30px; height: 30px;">
@@ -44,10 +44,12 @@
       
       <!-- Feedback Button -->
       <div style="flex: 1; min-width: 150px; padding: 10px;">
-          <a href="mailto:nagasheshu.akula@gmail.com" style="color: white; text-decoration: none;">
+      <a href="mailto:nagasheshu.akula@gmail.com?subject=Feedback%20on%20your%20Website&body=Hi%20there,%0D%0A%0D%0AI%20wanted%20to%20provide%20some%20feedback%20on%20your%20website.%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20Name]">
+
               <button style="background-color: #4CAF50; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 5px; cursor: pointer;">
                   Give Feedback
               </button>
+              </a>
           </a>
       </div>
   </div>

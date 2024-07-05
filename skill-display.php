@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/normal.css">
+
     <link rel="stylesheet" href="./css/details.css">
+    <style>
+        
+        footer{
+        color: white;
+        text-align: center;
+        }
+    </style>
 </head>
+
 
 <?php
 error_reporting(E_ALL);
@@ -121,7 +130,7 @@ if (isset($_GET['id'])) {
         </div>
         <?php 
             // Display a button that creates a mailto link to contact
-            echo '<a href="mailto:' . htmlspecialchars($skill['contact']) . '">
+            echo '<a href="mailto:' . htmlspecialchars($skill['email']) . '">
                     <button style="width: 20%; height: 30px; margin-left: 25%; background-color: lightgreen;">CONTACT</button>
                 </a>'; 
             ?>            

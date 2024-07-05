@@ -15,9 +15,9 @@
         <div class="container">
     <ul>
       <li style="float:left;margin-top: -25px;"><a href="homepage.php"><span  class="title" style="font-size:38px;margin-left:-100px;"><span >S</span>kill <span>D</span>ealers</span></a></li>
-      <li class="right-nav"><a href="postaskill.php"><span style="font-size:15px;padding:-10px" class="medium">POST A SKILL</span></a></li>
-      <li class="right-nav"><a href="postaneed.php"><span style="font-size:15px;padding-10px" class="medium">POST A NEED</span></a>/</li> 
-      <li class="right-nav"><a href="explore.php"><span style="font-size:15px;padding:-10px" class="medium">EXPLORE</span></a>/</li> 
+      <li class="right-nav"><a href="addnews.php"><span style="font-size:15px;padding:-10px" class="medium">Add News</span></a></li>
+      <li class="right-nav"><a href="homepage.php"><span style="font-size:15px;padding-10px" class="medium">Home</span></a>/</li> 
+      
 
     </ul>
         </div>
@@ -60,7 +60,7 @@ From exciting milestones to important initiatives, our news page is your go-to d
                                 <h6 class="news-source">' . $row["source"] . '</h6>
                                 <p class="news-desc">' . $row["description"] . '</p>
                                 <p class="company-name">' . $row["company_name"] . '</p>
-                                <p >Id:' . $row["id"] . '</p>
+                                <span style="font-size:10px;">Id: ' . htmlspecialchars($row["id"]) . '</span>
                             </div>
                           </div>';
                 }
@@ -91,6 +91,7 @@ From exciting milestones to important initiatives, our news page is your go-to d
                                 <p class="news-desc">' . $row["description"] . '</p>
                                 <p class="company-name">' . $row["company_name"] . '</p>
                                 <p style="/font-size:small"/>Id:' . $row["id"] . '</p>
+                                <span style="font-size:10px;">Id: ' . htmlspecialchars($row["id"]) . '</span>
                             </div>
                           </div>';
                 }
@@ -106,4 +107,4 @@ From exciting milestones to important initiatives, our news page is your go-to d
         </div>
         <?php include './php/footer.php'; ?>
 </body>
-</html>
+</html>  

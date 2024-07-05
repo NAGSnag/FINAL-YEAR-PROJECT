@@ -119,13 +119,21 @@ $conn->close();
         .row {
             margin-bottom: 20px;
         }
-    </style>
+        img{
+            width: 470px;
+        }
+        h1{
+            font-size:60px;
+        }
+        
+        </style>
 </head>
 <body>
     <?php include"./php/backbutton.php" ;?>
 
 <div id="container">
     <h1>Admin Page</h1>
+ 
     <div class="kpi-boxes">
         <div class="kpi-box">
             <h2>Skills Count</h2>
@@ -162,6 +170,14 @@ $conn->close();
         <a href="admin/SkillPostEditForm.php" class="button">Edit Skill Post</a>
         <a href="admin/UserDataForm.php" class="button">Edit User Data Form</a>
     </div>
+</div>
+<div style="width:94%;border:5px solid black;margin-left:3%">
+    <img src="images/plot2.png" alt="">
+    <img src="images/plot1.png" alt="">
+    <img src="images/plot3.png" alt="">
+    <img src="images/plot4.png" alt="">
+    <img src="images/plot5.png" alt="">
+    <img src="images/plot6.png" alt=""><br><br><br><br><br>
 </div>
 
 </body>

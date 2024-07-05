@@ -58,13 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ph = $_POST['ph'];
         $jobTitle = $_POST['JobTitle'];
         $description = $_POST['description'];
-        $links = $_POST['links'];
         $date = date("Y-m-d H:i:s"); // Current date and time
         
-        $sql = "UPDATE skill_posts SET name=?, email=?, ph=?, job_title=?, description=?, links=?, updated_at=? WHERE id=?";
+        $sql = "UPDATE skills SET name=?, email=?, contact=?, title=?, description=?, time_published=? WHERE email=?";
         
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("sssssssi", $name, $email, $ph, $jobTitle, $description, $links, $date, $id);
+            $stmt->bind_param("sssssss", $name, $email, $ph, $jobTitle, $description, $date, $id);
             if ($stmt->execute()) {
                 echo "Skill post updated successfully";
             } else {
@@ -78,8 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // For Job Post Edit
     if (isset($_POST['update_job_post'])) {
+        echo $_POST;
         $id = $_POST['id'];
-        $companyName = $_POST['company_name'];
+        $companyName = $_POST['name'];
         $location = $_POST['location'];
         $salary = $_POST['salary'];
         $description = $_POST['description'];
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $publishedDate = $_POST['published_date'];
         $deadline = $_POST['deadline'];
         
-        $sql = "UPDATE job_posts SET company_name=?, location=?, salary=?, description=?, responsibilities=?, qualifications=?, vacancy=?, nature=?, published_date=?, deadline=? WHERE id=?";
+        $sql = "UPDATE jobs SET company_name=?, location=?, salary=?, job_description=?, responsibilities=?, qualifications=?, vacancy=?, nature=?, published_date=?, application_deadline=? WHERE email=?";
         
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("ssissssissi", $companyName, $location, $salary, $description, $responsibilities, $qualifications, $vacancy, $nature, $publishedDate, $deadline, $id);
@@ -107,8 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // For Need Post Edit
     if (isset($_POST['update_need_post'])) {
-        $jobTitle = $_POST['JobTitle'];
-        $description = $_POST['description'];
+
+        $id=$_POST['id'];
+     
         $date = date("Y-m-d H:i:s"); // Current date and time
         // Handle file uploads
         $resume = '';
@@ -137,10 +138,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
         
-        $sql = "UPDATE need_posts SET job_title=?, description=?, resume=?, banner=?, updated_at=? WHERE id=?";
+        $sql = "UPDATE needs SET job_title=?, description=?, resume=?, banner=?, created_at=? WHERE email=?";
         
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("sssssi", $jobTitle, $description, $resume, $banner, $date, $id);
+            $stmt->bind_param("ssssss", $_POST['JobTitle'], $_POST['description'], $resume, $banner, $date, $id);
             if ($stmt->execute()) {
                 echo "Need post updated successfully";
             } else {

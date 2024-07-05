@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Data Form</title>
+    <title>Admin Controlls</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,7 +55,7 @@
             <div class="form-group">
                 <label for="Email">Search Email:</label>
                 <input type="email" id="Email" name="Email" class="form-input" required>
-                <button class="button">Search</button>
+                
             </div>
             <div class="form-group">
                 <label for="input-file">Upload Profile Picture</label>

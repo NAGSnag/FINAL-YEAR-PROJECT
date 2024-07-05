@@ -6,6 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/normal.css">
     <link rel="stylesheet" href="./css/details.css">
+    <style>
+        
+        footer{
+        color: white;
+        text-align: center;
+        }
+    </style>
 </head>
 <body style="background: linear-gradient(to right, lightblue, lightgreen);">
 

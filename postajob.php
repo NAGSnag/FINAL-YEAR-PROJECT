@@ -4,86 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post a Job</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #2ecc71, #27ae60);
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        .container {
-            max-width: 800px;
-            max-height:1000px;
-            margin: 20px auto;
-            padding: 20px;
-            padding-bottom: 950px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2ecc71;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            resize: none;
-            height: 150px;
-        }
-
-        input[type="file"] {
-            margin-bottom: 5px;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 15px;
-            background-color: #2ecc71;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #27ae60;
-        }
-    </style>
+    <link rel="stylesheet" href="css/postajob.css">
 </head>
 <body>
     
@@ -157,7 +78,7 @@
 
             <input type="submit" value="Submit">
         </form>
-    </div>  <?php include './php/footer.php'; ?>
+    </div>  
 
     <script>
         function previewLogo(event) {
@@ -175,4 +96,5 @@
     </script>
       
 </body>
+<?php include './php/footer.php'; ?>
 </html>

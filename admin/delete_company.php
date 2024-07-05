@@ -4,9 +4,9 @@ include 'config.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $company_id = $_POST['company_id'];
 
-    $sql = "DELETE FROM companies WHERE id = ?";
+    $sql = "DELETE FROM business WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $company_id);
+    $stmt->bind_param("s", $company_id);
 
     if ($stmt->execute()) {
         echo "Company deleted successfully";

@@ -4,6 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_company_profil
     $username = "root";
     $password = "";
     $dbname = "fyproject";
+    $id=$_POST['id'];
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_company_profil
     if ($logo !== null) {
         $sql .= ", logo = ?";
     }
-    $sql .= " WHERE id = ?";
+    $sql .= " WHERE email = ?";
 
-    // Prepare and bind
+
     $stmt = $conn->prepare($sql);
     if ($logo !== null) {
         $stmt->bind_param("ssssssi", $name, $hashed_password, $location, $contact, $description, $logo, $id);
@@ -48,16 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_company_profil
         $stmt->bind_param("sssssi", $name, $hashed_password, $location, $contact, $description, $id);
     }
 
-    // Set the ID to update (assuming a single record, adjust as necessary)
-    $id = $_POST['id']; // Change this as necessary
+
 
     // Execute the statement
     if ($stmt->execute()) {
+        echo 'success';
     } else {
         echo "Error updating record: " . $stmt->error;
     }
 
-    // Close the statement and connection
     $stmt->close();
     $conn->close();
 }

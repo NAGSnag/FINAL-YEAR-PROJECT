@@ -19,6 +19,32 @@ if ($conn->connect_error) {
 $email = $_POST['email'];
 $password = $_POST['pass'];
 
+// Check if email is in blocked_email table
+function isEmailBlocked($conn, $email) {
+    $query = "SELECT 1 FROM blocked_emails WHERE email = ?";
+    $stmt = $conn->prepare($query);
+
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        return true;
+    }
+
+    return false;
+}
+
+// Return null if email is blocked
+if (isEmailBlocked($conn, $email)) {
+    header("Location: ../error.php?message=" . urlencode("This email is blocked."));
+    exit;
+}
+
 // Check for admin credentials
 $adminEmail = "admin"; // Change to your admin email
 $adminPasswordHash = password_hash("ans030403", PASSWORD_DEFAULT); // Hash the admin password
@@ -47,8 +73,8 @@ function getUserNameIfValid($conn, $email, $password, $table) {
         $stmt->fetch();
         
         if (password_verify($password, $stored_password)) {
-            $_SESSION['user']=$name;
-            $_SESSION['email']=$email;
+            $_SESSION['user'] = $name;
+            $_SESSION['email'] = $email;
             return $name;
         }
     }
@@ -60,7 +86,7 @@ function getUserNameIfValid($conn, $email, $password, $table) {
 $userName = getUserNameIfValid($conn, $email, $password, "users");
 
 if ($userName) {
-    $_SESSION['type']='user';
+    $_SESSION['type'] = 'user';
     header("Location: ../explore.php?username=" . urlencode($userName));
     exit;
 }
@@ -68,13 +94,13 @@ if ($userName) {
 // Check in 'business' table
 $businessName = getUserNameIfValid($conn, $email, $password, "business");
 if ($businessName) {
-    $_SESSION['type']='business';
-    header("Location: ../exploreforbusiness.php?username=" . urlencode($businessName).'&email='.$email);
+    $_SESSION['type'] = 'business';
+    header("Location: ../exploreforbusiness.php?username=" . urlencode($businessName) . '&email=' . $email);
     exit;
 }
 
 // If no match, redirect back to login with a failure message
-header("Location: ../login.html?error=invalid_credentials");
+header("Location: ../error.php");
 
 exit;
 ?>
